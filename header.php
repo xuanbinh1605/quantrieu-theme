@@ -24,7 +24,7 @@
             </a>
 
             <!-- Desktop Navigation -->
-            <nav class="flex items-center gap-1">
+            <nav class="lg:flex hidden items-center gap-1" style="display: flex;">
                 <?php
                 if (has_nav_menu('primary')) {
                     wp_nav_menu(array(
@@ -80,7 +80,7 @@
             </nav>
 
             <!-- Desktop Actions -->
-            <div class="flex items-center gap-4">
+            <div class="lg:flex hidden items-center gap-4" style="display: flex;">
                 <a href="tel:0909123456" class="flex items-center gap-2 text-primary font-semibold">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone w-5 h-5">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -93,7 +93,7 @@
             </div>
 
             <!-- Mobile Menu Toggle -->
-            <button class="lg:hidden p-2" id="mobile-menu-toggle">
+            <button class="lg:hidden p-2" id="mobile-menu-toggle" aria-label="Toggle menu">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu w-6 h-6">
                     <line x1="4" x2="20" y1="12" y2="12"></line>
                     <line x1="4" x2="20" y1="6" y2="6"></line>
@@ -102,4 +102,108 @@
             </button>
         </div>
     </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-border bg-white">
+        <div class="container mx-auto px-4">
+            <nav class="py-4">
+                <?php
+                if (has_nav_menu('primary')) {
+                    wp_nav_menu(array(
+                        'theme_location' => 'primary',
+                        'container' => false,
+                        'menu_class' => 'space-y-1',
+                        'fallback_cb' => false,
+                        'items_wrap' => '<div class="%2$s">%3$s</div>',
+                        'walker' => new class extends Walker_Nav_Menu {
+                            function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+                                $output .= '<a class="block px-4 py-3 text-sm font-medium text-foreground hover:bg-muted hover:text-primary transition-colors rounded-lg" href="' . esc_url($item->url) . '">';
+                                $output .= esc_html($item->title);
+                                $output .= '</a>';
+                            }
+                        },
+                    ));
+                } else {
+                    // Fallback menu
+                    ?>
+                    <div class="space-y-1">
+                        <a class="block px-4 py-3 text-sm font-medium text-foreground hover:bg-muted hover:text-primary transition-colors rounded-lg" href="<?php echo esc_url(home_url('/')); ?>">Trang chủ</a>
+                        <a class="block px-4 py-3 text-sm font-medium text-foreground hover:bg-muted hover:text-primary transition-colors rounded-lg" href="<?php echo esc_url(home_url('/gioi-thieu')); ?>">Giới thiệu</a>
+                        <a class="block px-4 py-3 text-sm font-medium text-foreground hover:bg-muted hover:text-primary transition-colors rounded-lg" href="<?php echo esc_url(home_url('/dich-vu')); ?>">Dịch vụ</a>
+                        <a class="block px-4 py-3 text-sm font-medium text-foreground hover:bg-muted hover:text-primary transition-colors rounded-lg" href="<?php echo esc_url(home_url('/du-an')); ?>">Dự án</a>
+                        <a class="block px-4 py-3 text-sm font-medium text-foreground hover:bg-muted hover:text-primary transition-colors rounded-lg" href="<?php echo esc_url(home_url('/tin-tuc')); ?>">Tin tức</a>
+                        <a class="block px-4 py-3 text-sm font-medium text-foreground hover:bg-muted hover:text-primary transition-colors rounded-lg" href="<?php echo esc_url(home_url('/lien-he')); ?>">Liên hệ</a>
+                    </div>
+                    <?php
+                }
+                ?>
+                
+                <!-- Mobile Actions -->
+                <div class="mt-4 space-y-3">
+                    <a href="tel:0909123456" class="flex items-center justify-center gap-2 text-primary font-semibold py-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone w-5 h-5">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        0909 123 456
+                    </a>
+                    <button data-slot="button" class="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all bg-gradient-to-r from-[#FF9800] to-[#F44336] hover:from-[#F57C00] hover:to-[#E53935] text-white shadow-lg h-10 px-4">
+                        Nhận báo giá
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </div>
 </header>
+
+<style>
+@media (max-width: 1023px) {
+    header nav.hidden,
+    header .hidden.lg\:flex {
+        display: none !important;
+    }
+    #mobile-menu.hidden {
+        display: none !important;
+    }
+    #mobile-menu:not(.hidden) {
+        display: block !important;
+    }
+}
+@media (min-width: 1024px) {
+    header nav,
+    header .hidden.lg\:flex {
+        display: flex !important;
+    }
+    #mobile-menu {
+        display: none !important;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (toggleButton && mobileMenu) {
+        toggleButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            
+            // Toggle icon
+            const svg = toggleButton.querySelector('svg');
+            if (mobileMenu.classList.contains('hidden')) {
+                svg.innerHTML = '<line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line>';
+            } else {
+                svg.innerHTML = '<path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>';
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!toggleButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+                toggleButton.querySelector('svg').innerHTML = '<line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line>';
+            }
+        });
+    }
+});
+</script>

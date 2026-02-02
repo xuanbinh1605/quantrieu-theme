@@ -20,6 +20,8 @@ function quantrieu_theme_setup() {
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'quantrieu'),
         'footer' => __('Footer Menu', 'quantrieu'),
+        'footer-quick-links' => __('Footer Quick Links', 'quantrieu'),
+        'footer-services' => __('Footer Services', 'quantrieu'),
     ));
 }
 add_action('after_setup_theme', 'quantrieu_theme_setup');

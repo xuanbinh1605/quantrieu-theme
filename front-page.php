@@ -185,7 +185,7 @@ get_header();
                         ));
                         ?>
                     </div>
-                    <div class="absolute -bottom-8 -right-8 bg-card rounded-2xl shadow-2xl p-6 max-w-xs">
+                    <div class="absolute -bottom-8 -right-7 bg-card rounded-2xl shadow-2xl p-6 max-w-xs">
                         <div class="text-4xl font-bold bg-gradient-to-r from-[#FF9800] to-[#F44336] bg-clip-text text-transparent mb-2">10+</div>
                         <p class="text-muted-foreground">Năm kinh nghiệm trong ngành in ấn</p>
                     </div>
@@ -304,10 +304,10 @@ get_header();
             </div>
 
             <!-- Process Steps -->
-            <div class="flex flex-col lg:flex-row justify-center items-start gap-8 lg:gap-0 mb-12">
+            <div class="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-8 lg:gap-0 mb-12">
                 <!-- Step 1 -->
-                <div class="relative group flex-1 flex flex-col items-center">
-                    <div class="relative z-10 text-center px-4">
+                <div class="relative group flex-1 flex flex-col items-center w-full lg:w-auto">
+                    <div class="relative z-10 text-center px-4 w-full max-w-xs mx-auto">
                         <div class="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 mb-6 group-hover:from-[#FF9800]/30 group-hover:to-[#F44336]/30 transition-colors border border-[#FF9800]/30">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square w-10 h-10 text-[#FF9800]">
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -322,8 +322,8 @@ get_header();
                 </div>
 
                 <!-- Step 2 -->
-                <div class="relative group flex-1 flex flex-col items-center">
-                    <div class="relative z-10 text-center px-4">
+                <div class="relative group flex-1 flex flex-col items-center w-full lg:w-auto">
+                    <div class="relative z-10 text-center px-4 w-full max-w-xs mx-auto">
                         <div class="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 mb-6 group-hover:from-[#FF9800]/30 group-hover:to-[#F44336]/30 transition-colors border border-[#FF9800]/30">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette w-10 h-10 text-[#FF9800]">
                                 <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
@@ -342,8 +342,8 @@ get_header();
                 </div>
 
                 <!-- Step 3 -->
-                <div class="relative group flex-1 flex flex-col items-center">
-                    <div class="relative z-10 text-center px-4">
+                <div class="relative group flex-1 flex flex-col items-center w-full lg:w-auto">
+                    <div class="relative z-10 text-center px-4 w-full max-w-xs mx-auto">
                         <div class="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 mb-6 group-hover:from-[#FF9800]/30 group-hover:to-[#F44336]/30 transition-colors border border-[#FF9800]/30">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer w-10 h-10 text-[#FF9800]">
                                 <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
@@ -360,8 +360,8 @@ get_header();
                 </div>
 
                 <!-- Step 4 -->
-                <div class="relative group flex-1 flex flex-col items-center">
-                    <div class="relative z-10 text-center px-4">
+                <div class="relative group flex-1 flex flex-col items-center w-full lg:w-auto">
+                    <div class="relative z-10 text-center px-4 w-full max-w-xs mx-auto">
                         <div class="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 mb-6 group-hover:from-[#FF9800]/30 group-hover:to-[#F44336]/30 transition-colors border border-[#FF9800]/30">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package w-10 h-10 text-[#FF9800]">
                                 <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"></path>
@@ -534,6 +534,30 @@ get_header();
                     wp_reset_postdata();
                 endif;
                 ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 relative overflow-hidden bg-primary">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center text-primary-foreground">
+                <h2 class="text-primary-foreground mb-4 text-balance">Bạn Cần Tư Vấn Dịch Vụ In Ấn?</h2>
+                <p class="text-lg text-primary-foreground/90 mb-8">Liên hệ ngay với chúng tôi để nhận báo giá tốt nhất và được tư vấn miễn phí!</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="tel:0909123456" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-md px-6 has-[>svg]:px-4 btn-white btn-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone w-5 h-5">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        Gọi ngay: 0909 123 456
+                    </a>
+                    <a href="https://zalo.me/0909123456" target="_blank" rel="noopener noreferrer" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-10 rounded-md px-6 has-[>svg]:px-4 btn-outline-white btn-lg bg-transparent">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle w-5 h-5">
+                            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                        </svg>
+                        Chat Zalo
+                    </a>
+                </div>
             </div>
         </div>
     </section>

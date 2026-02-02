@@ -390,6 +390,65 @@ get_header();
             </div>
         </div>
     </section>
+
+    <!-- Clients Section -->
+    <section class="py-24 bg-muted/30">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center mb-12 md:mb-16 px-2">
+                <span class="inline-block px-3 md:px-4 py-1.5 bg-[#0090ff]/10 text-[#0090ff] text-xs md:text-sm font-medium rounded-full mb-4">CLIENT</span>
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Khách Hàng Của Chúng Tôi</h2>
+                <p class="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">Được tin tưởng bởi hàng nghìn doanh nghiệp trên toàn quốc</p>
+            </div>
+
+            <!-- Clients Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <?php
+                // Query khach-hang posts
+                $clients_query = new WP_Query(array(
+                    'post_type' => 'khach_hang',
+                    'posts_per_page' => 8,
+                    'orderby' => 'date',
+                    'order' => 'DESC'
+                ));
+
+                if ($clients_query->have_posts()) :
+                    while ($clients_query->have_posts()) : $clients_query->the_post();
+                        ?>
+                        <div class="flex items-center justify-center p-6 bg-card rounded-xl hover:shadow-lg transition-shadow grayscale hover:grayscale-0">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <?php the_post_thumbnail('medium', array(
+                                    'alt' => get_the_title(),
+                                    'class' => 'h-12 w-auto object-contain'
+                                )); ?>
+                            <?php else : ?>
+                                <div class="h-12 flex items-center justify-center text-muted-foreground text-sm font-medium">
+                                    <?php the_title(); ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <?php
+                    endwhile;
+                    wp_reset_postdata();
+                else :
+                    // Fallback if no clients
+                    for ($i = 1; $i <= 8; $i++) :
+                        ?>
+                        <div class="flex items-center justify-center p-6 bg-card rounded-xl hover:shadow-lg transition-shadow grayscale hover:grayscale-0">
+                            <div class="h-12 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="120" height="48" viewBox="0 0 120 48" class="text-muted-foreground opacity-30">
+                                    <rect x="10" y="14" width="100" height="20" rx="4" fill="currentColor"/>
+                                    <text x="60" y="30" text-anchor="middle" fill="white" font-size="12" font-family="Arial">Client <?php echo $i; ?></text>
+                                </svg>
+                            </div>
+                        </div>
+                        <?php
+                    endfor;
+                endif;
+                ?>
+            </div>
+        </div>
+    </section>
 </main>
 
 <?php

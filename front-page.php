@@ -449,6 +449,94 @@ get_header();
             </div>
         </div>
     </section>
+
+    <!-- News Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-12 px-2">
+                <div class="text-center sm:text-left">
+                    <span class="inline-block px-3 md:px-4 py-1.5 bg-[#FF9800]/10 text-[#FF9800] text-xs md:text-sm font-medium rounded-full mb-4">NEWS</span>
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold">Tin Tức & Kiến Thức In Ấn</h2>
+                </div>
+                <a class="inline-flex items-center gap-2 text-[#0090ff] hover:text-[#0070cc] font-medium" href="<?php echo esc_url(get_post_type_archive_link('tin_tuc')); ?>">
+                    Xem tất cả
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- News Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <?php
+                // Query tin-tuc posts
+                $news_query = new WP_Query(array(
+                    'post_type' => 'tin_tuc',
+                    'posts_per_page' => 3,
+                    'orderby' => 'date',
+                    'order' => 'DESC'
+                ));
+
+                if ($news_query->have_posts()) :
+                    while ($news_query->have_posts()) : $news_query->the_post();
+                        ?>
+                        <article class="group bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                            <a href="<?php echo esc_url(get_permalink()); ?>">
+                                <!-- Featured Image -->
+                                <div class="aspect-[4/3] overflow-hidden">
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <?php the_post_thumbnail('large', array(
+                                            'alt' => get_the_title(),
+                                            'class' => 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-500'
+                                        )); ?>
+                                    <?php else : ?>
+                                        <div class="w-full h-full bg-muted flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground">
+                                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                                <polyline points="14 2 14 8 20 8"></polyline>
+                                                <line x1="16" x2="8" y1="13" y2="13"></line>
+                                                <line x1="16" x2="8" y1="17" y2="17"></line>
+                                                <line x1="10" x2="8" y1="9" y2="9"></line>
+                                            </svg>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+
+                                <!-- Content -->
+                                <div class="p-6">
+                                    <!-- Date -->
+                                    <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar w-4 h-4">
+                                            <path d="M8 2v4"></path>
+                                            <path d="M16 2v4"></path>
+                                            <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                                            <path d="M3 10h18"></path>
+                                        </svg>
+                                        <?php echo get_the_date('d/m/Y'); ?>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <h3 class="text-lg font-semibold mb-2 line-clamp-2 group-hover:text-[#FF9800] transition-colors">
+                                        <?php the_title(); ?>
+                                    </h3>
+
+                                    <!-- Excerpt -->
+                                    <p class="text-muted-foreground text-sm line-clamp-2">
+                                        <?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?>
+                                    </p>
+                                </div>
+                            </a>
+                        </article>
+                        <?php
+                    endwhile;
+                    wp_reset_postdata();
+                endif;
+                ?>
+            </div>
+        </div>
+    </section>
 </main>
 
 <?php

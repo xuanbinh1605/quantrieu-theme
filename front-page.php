@@ -97,7 +97,7 @@ get_header();
                 <?php
                 // Query dich-vu posts
                 $services_query = new WP_Query(array(
-                    'post_type' => 'dich-vu',
+                    'post_type' => 'dich_vu',
                     'posts_per_page' => 8,
                     'orderby' => 'date',
                     'order' => 'DESC'
@@ -159,7 +159,7 @@ get_header();
 
             <!-- View All Button -->
             <div class="text-center mt-12">
-                <a class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#FF9800] to-[#F44336] text-white font-medium rounded-full hover:shadow-lg hover:shadow-[#FF9800]/25 transition-all" href="<?php echo esc_url(get_post_type_archive_link('dich-vu')); ?>">
+                <a class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#FF9800] to-[#F44336] text-white font-medium rounded-full hover:shadow-lg hover:shadow-[#FF9800]/25 transition-all" href="<?php echo esc_url(get_post_type_archive_link('dich_vu')); ?>">
                     Xem tất cả dịch vụ
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5">
                         <path d="M5 12h14"></path>

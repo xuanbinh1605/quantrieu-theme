@@ -35,21 +35,38 @@
                         'items_wrap' => '%3$s',
                         'walker' => new class extends Walker_Nav_Menu {
                             function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
-                                $classes = 'flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors';
-                                
-                                $output .= '<div class="relative">';
-                                $output .= '<a class="' . $classes . '" href="' . esc_url($item->url) . '">';
-                                $output .= esc_html($item->title);
-                                
-                                if (in_array('menu-item-has-children', $item->classes)) {
-                                    $output .= '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4"><path d="m6 9 6 6 6-6"></path></svg>';
+                                if ($depth === 0) {
+                                    $classes = 'flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors';
+                                    
+                                    $output .= '<div class="relative menu-item-parent">';
+                                    $output .= '<a class="' . $classes . '" href="' . esc_url($item->url) . '">';
+                                    $output .= esc_html($item->title);
+                                    
+                                    if (in_array('menu-item-has-children', $item->classes)) {
+                                        $output .= '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4"><path d="m6 9 6 6 6-6"></path></svg>';
+                                    }
+                                    
+                                    $output .= '</a>';
+                                } else {
+                                    // Submenu item
+                                    $output .= '<a class="block px-4 py-2.5 text-sm text-foreground hover:bg-primary/10 hover:text-primary transition-colors" href="' . esc_url($item->url) . '">';
+                                    $output .= esc_html($item->title);
+                                    $output .= '</a>';
                                 }
-                                
-                                $output .= '</a>';
+                            }
+                            
+                            function start_lvl(&$output, $depth = 0, $args = null) {
+                                $output .= '<div class="submenu absolute top-full left-0 w-56 bg-card rounded-lg shadow-xl border border-border py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">';
+                            }
+                            
+                            function end_lvl(&$output, $depth = 0, $args = null) {
+                                $output .= '</div>';
                             }
                             
                             function end_el(&$output, $item, $depth = 0, $args = null) {
-                                $output .= '</div>';
+                                if ($depth === 0) {
+                                    $output .= '</div>';
+                                }
                             }
                         },
                     ));
@@ -117,9 +134,35 @@
                         'items_wrap' => '<div class="%2$s">%3$s</div>',
                         'walker' => new class extends Walker_Nav_Menu {
                             function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
-                                $output .= '<a class="block px-4 py-3 text-sm font-medium text-foreground hover:bg-muted hover:text-primary transition-colors rounded-lg" href="' . esc_url($item->url) . '">';
-                                $output .= esc_html($item->title);
-                                $output .= '</a>';
+                                if ($depth === 0) {
+                                    $has_children = in_array('menu-item-has-children', $item->classes);
+                                    $output .= '<div class="mobile-menu-item">';
+                                    $output .= '<a class="block px-4 py-3 text-sm font-medium text-foreground hover:bg-muted hover:text-primary transition-colors rounded-lg' . ($has_children ? ' flex items-center justify-between' : '') . '" href="' . esc_url($item->url) . '">';
+                                    $output .= '<span>' . esc_html($item->title) . '</span>';
+                                    if ($has_children) {
+                                        $output .= '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-4 h-4 mobile-submenu-toggle transition-transform"><path d="m6 9 6 6 6-6"></path></svg>';
+                                    }
+                                    $output .= '</a>';
+                                } else {
+                                    // Submenu item for mobile
+                                    $output .= '<a class="block py-2 text-sm text-muted-foreground" href="' . esc_url($item->url) . '">';
+                                    $output .= esc_html($item->title);
+                                    $output .= '</a>';
+                                }
+                            }
+                            
+                            function start_lvl(&$output, $depth = 0, $args = null) {
+                                $output .= '<div class="mobile-submenu hidden pl-4">';
+                            }
+                            
+                            function end_lvl(&$output, $depth = 0, $args = null) {
+                                $output .= '</div>';
+                            }
+                            
+                            function end_el(&$output, $item, $depth = 0, $args = null) {
+                                if ($depth === 0) {
+                                    $output .= '</div>';
+                                }
                             }
                         },
                     ));
@@ -177,6 +220,45 @@
         display: none !important;
     }
 }
+
+/* Desktop Submenu Styles */
+.menu-item-parent {
+    position: relative;
+}
+
+.menu-item-parent .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0;
+    padding-top: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;
+    z-index: 50;
+}
+
+.menu-item-parent:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Mobile Submenu Styles */
+.mobile-submenu.hidden {
+    display: none;
+}
+
+.mobile-submenu:not(.hidden) {
+    display: block;
+}
+
+.mobile-submenu-toggle.rotate-180 {
+    transform: rotate(180deg);
+}
 </style>
 
 <script>
@@ -205,5 +287,22 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Mobile submenu toggle functionality
+    const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+    mobileMenuItems.forEach(function(item) {
+        const link = item.querySelector('a');
+        const submenu = item.querySelector('.mobile-submenu');
+        const toggle = item.querySelector('.mobile-submenu-toggle');
+        
+        if (submenu && toggle) {
+            // Prevent navigation when clicking on parent with submenu
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                submenu.classList.toggle('hidden');
+                toggle.classList.toggle('rotate-180');
+            });
+        }
+    });
 });
 </script>

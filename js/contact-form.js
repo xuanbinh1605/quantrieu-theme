@@ -22,45 +22,45 @@
 
     // Show error
     function showError(input, message) {
-        const formGroup = input.closest('.space-y-2');
-        input.classList.add('border-red-500', 'focus-visible:ring-red-500/20');
-        input.classList.remove('border-green-500', 'focus-visible:ring-green-500/20');
+        const $input = $(input);
+        const $formGroup = $input.closest('.space-y-2');
+        
+        // Add error classes
+        $input.addClass('border-red-500 is-invalid');
         
         // Remove existing error message
-        const existingError = formGroup.querySelector('.error-message');
-        if (existingError) {
-            existingError.remove();
-        }
+        $formGroup.find('.error-message').remove();
         
         // Add error message
-        const errorDiv = document.createElement('p');
-        errorDiv.className = 'error-message text-xs text-red-500 mt-1';
-        errorDiv.textContent = message;
-        formGroup.appendChild(errorDiv);
+        const errorDiv = $('<p></p>')
+            .addClass('error-message text-xs text-red-500 mt-1 font-medium')
+            .css('color', '#ef4444')
+            .text(message);
+        $formGroup.append(errorDiv);
     }
 
-    // Show success
+    // Show success (clear error state)
     function showSuccess(input) {
-        const formGroup = input.closest('.space-y-2');
-        input.classList.add('border-green-500', 'focus-visible:ring-green-500/20');
-        input.classList.remove('border-red-500', 'focus-visible:ring-red-500/20');
+        const $input = $(input);
+        const $formGroup = $input.closest('.space-y-2');
+        
+        // Remove error classes
+        $input.removeClass('border-red-500 is-invalid');
         
         // Remove error message
-        const existingError = formGroup.querySelector('.error-message');
-        if (existingError) {
-            existingError.remove();
-        }
+        $formGroup.find('.error-message').remove();
     }
 
     // Clear validation
     function clearValidation(input) {
-        const formGroup = input.closest('.space-y-2');
-        input.classList.remove('border-red-500', 'border-green-500', 'focus-visible:ring-red-500/20', 'focus-visible:ring-green-500/20');
+        const $input = $(input);
+        const $formGroup = $input.closest('.space-y-2');
         
-        const existingError = formGroup.querySelector('.error-message');
-        if (existingError) {
-            existingError.remove();
-        }
+        // Remove validation classes
+        $input.removeClass('border-red-500 is-invalid');
+        
+        // Remove error message
+        $formGroup.find('.error-message').remove();
     }
 
     // Validate field
@@ -105,9 +105,9 @@
         }
         
         const notification = document.createElement('div');
-        notification.className = `form-notification fixed top-4 right-4 z-50 px-6 py-4 rounded-lg shadow-lg flex items-center gap-3 animate-slide-in ${
-            type === 'success' ? 'bg-green-500' : 'bg-red-500'
-        } text-white`;
+        const bgColor = type === 'success' ? '#22c55e' : '#ef4444';
+        notification.className = `form-notification fixed top-20 right-4 z-50 px-6 py-4 rounded-lg shadow-lg flex items-center gap-3 animate-slide-in text-white`;
+        notification.style.backgroundColor = bgColor;
         
         const icon = type === 'success' 
             ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M20 6 9 17l-5-5"></path></svg>'
@@ -135,7 +135,8 @@
         });
         
         inputs.on('input', function() {
-            if (this.classList.contains('border-red-500') || this.classList.contains('border-green-500')) {
+            const $this = $(this);
+            if ($this.hasClass('border-red-500') || $this.hasClass('border-green-500')) {
                 validateField(this);
             }
         });
@@ -191,7 +192,7 @@
         });
     });
     
-    // Add CSS animations
+    // Add CSS animations and validation styles
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slide-in {
@@ -216,6 +217,41 @@
         }
         .form-notification {
             animation: slide-in 0.3s ease-out;
+        }
+        
+        /* Validation styles */
+        input.is-invalid,
+        select.is-invalid,
+        textarea.is-invalid {
+            border-color: #ef4444 !important;
+            border-width: 2px !important;
+        }
+        
+        input.is-invalid:focus,
+        select.is-invalid:focus,
+        textarea.is-invalid:focus {
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+        }
+        
+        .error-message {
+            display: block;
+            color: #ef4444 !important;
+            font-size: 0.75rem !important;
+            margin-top: 0.25rem !important;
+            font-weight: 500 !important;
+            animation: fadeIn 0.2s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     `;
     document.head.appendChild(style);

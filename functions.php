@@ -29,6 +29,15 @@ add_action('after_setup_theme', 'quantrieu_theme_setup');
 // Enqueue scripts and styles
 function quantrieu_enqueue_scripts() {
     wp_enqueue_style('quantrieu-style', get_stylesheet_uri(), array(), '1.0.0');
+    
+    // Enqueue contact form script on contact page
+    if (is_page_template('page-lien-he.php')) {
+        wp_enqueue_script('quantrieu-contact-form', get_template_directory_uri() . '/js/contact-form.js', array('jquery'), '1.0.0', true);
+        wp_localize_script('quantrieu-contact-form', 'contactFormAjax', array(
+            'ajaxurl' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('contact_form_nonce')
+        ));
+    }
 }
 add_action('wp_enqueue_scripts', 'quantrieu_enqueue_scripts');
 
@@ -47,3 +56,6 @@ require_once get_template_directory() . '/metas/du-an-meta.php';
 
 // Include contact admin page
 require_once get_template_directory() . '/admin/contact-list.php';
+
+// Include AJAX handlers
+require_once get_template_directory() . '/ajax/contact-form-handler.php';

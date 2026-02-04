@@ -12,20 +12,21 @@ if (!defined('ABSPATH')) {
 // Create database table on theme activation
 function quantrieu_create_contact_table() {
     global $wpdb;
-    $table_name = $wpdb->prefix . 'quantrieu_contacts';
+    $table_name = $wpdb->prefix . 'contact_submissions';
     $charset_collate = $wpdb->get_charset_collate();
 
     $sql = "CREATE TABLE IF NOT EXISTS $table_name (
-        id mediumint(9) NOT NULL AUTO_INCREMENT,
-        ho_va_ten varchar(255) NOT NULL,
-        so_dien_thoai varchar(20) NOT NULL,
-        email varchar(100) NOT NULL,
-        cong_ty_to_chuc varchar(255) DEFAULT '' NOT NULL,
-        dich_vu_quan_tam text DEFAULT '' NOT NULL,
-        so_luong_du_kien varchar(100) DEFAULT '' NOT NULL,
-        noi_dung_yeu_cau text DEFAULT '' NOT NULL,
-        created_at datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
-        PRIMARY KEY  (id)
+        id bigint(20) NOT NULL AUTO_INCREMENT,
+        name varchar(255) NOT NULL,
+        phone varchar(20) NOT NULL,
+        email varchar(100),
+        company varchar(255),
+        service varchar(100) NOT NULL,
+        quantity varchar(100),
+        message text NOT NULL,
+        status varchar(20) DEFAULT 'new',
+        created_at datetime DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id)
     ) $charset_collate;";
 
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -59,7 +60,7 @@ function quantrieu_handle_contact_delete() {
         }
 
         global $wpdb;
-        $table_name = $wpdb->prefix . 'quantrieu_contacts';
+        $table_name = $wpdb->prefix . 'contact_submissions';
         $contact_id = intval($_GET['contact_id']);
         
         $wpdb->delete($table_name, array('id' => $contact_id), array('%d'));
@@ -73,7 +74,7 @@ add_action('admin_init', 'quantrieu_handle_contact_delete');
 // Admin page callback
 function quantrieu_contact_admin_page() {
     global $wpdb;
-    $table_name = $wpdb->prefix . 'quantrieu_contacts';
+    $table_name = $wpdb->prefix . 'contact_submissions';
 
     // Get all contacts
     $contacts = $wpdb->get_results("SELECT * FROM $table_name ORDER BY created_at DESC");
@@ -95,10 +96,11 @@ function quantrieu_contact_admin_page() {
                     <th scope="col"><?php _e('Họ và tên', 'quantrieu'); ?></th>
                     <th scope="col"><?php _e('Số điện thoại', 'quantrieu'); ?></th>
                     <th scope="col"><?php _e('Email', 'quantrieu'); ?></th>
-                    <th scope="col"><?php _e('Công ty tổ chức', 'quantrieu'); ?></th>
-                    <th scope="col"><?php _e('Dịch vụ quan tâm', 'quantrieu'); ?></th>
-                    <th scope="col"><?php _e('Số lượng dự kiến', 'quantrieu'); ?></th>
-                    <th scope="col"><?php _e('Nội dung yêu cầu', 'quantrieu'); ?></th>
+                    <th scope="col"><?php _e('Công ty', 'quantrieu'); ?></th>
+                    <th scope="col"><?php _e('Dịch vụ', 'quantrieu'); ?></th>
+                    <th scope="col"><?php _e('Số lượng', 'quantrieu'); ?></th>
+                    <th scope="col"><?php _e('Nội dung', 'quantrieu'); ?></th>
+                    <th scope="col"><?php _e('Trạng thái', 'quantrieu'); ?></th>
                     <th scope="col"><?php _e('Ngày gửi', 'quantrieu'); ?></th>
                     <th scope="col"><?php _e('Hành động', 'quantrieu'); ?></th>
                 </tr>
@@ -108,14 +110,32 @@ function quantrieu_contact_admin_page() {
                     <?php foreach ($contacts as $contact): ?>
                         <tr>
                             <td><?php echo esc_html($contact->id); ?></td>
-                            <td><strong><?php echo esc_html($contact->ho_va_ten); ?></strong></td>
-                            <td><?php echo esc_html($contact->so_dien_thoai); ?></td>
-                            <td><a href="mailto:<?php echo esc_attr($contact->email); ?>"><?php echo esc_html($contact->email); ?></a></td>
-                            <td><?php echo esc_html($contact->cong_ty_to_chuc); ?></td>
-                            <td><?php echo esc_html($contact->dich_vu_quan_tam); ?></td>
-                            <td><?php echo esc_html($contact->so_luong_du_kien); ?></td>
-                            <td><?php echo esc_html(wp_trim_words($contact->noi_dung_yeu_cau, 10)); ?></td>
-                            <td><?php echo esc_html(date_i18n(get_option('date_format') . ' ' . get_option('time_format'), strtotime($contact->created_at))); ?></td>
+                            <td><strong><?php echo esc_html($contact->name); ?></strong></td>
+                            <td><a href="tel:<?php echo esc_attr($contact->phone); ?>"><?php echo esc_html($contact->phone); ?></a></td>
+                            <td>
+                                <?php if (!empty($contact->email)): ?>
+                                    <a href="mailto:<?php echo esc_attr($contact->email); ?>"><?php echo esc_html($contact->email); ?></a>
+                                <?php else: ?>
+                                    —
+                                <?php endif; ?>
+                            </td>
+                            <td><?php echo esc_html($contact->company ?: '—'); ?></td>
+                            <td><?php echo esc_html($contact->service); ?></td>
+                            <td><?php echo esc_html($contact->quantity ?: '—'); ?></td>
+                            <td>
+                                <button type="button" class="button button-small" onclick="alert('<?php echo esc_js($contact->message); ?>')">
+                                    <?php _e('Xem', 'quantrieu'); ?>
+                                </button>
+                            </td>
+                            <td>
+                                <span class="status-badge status-<?php echo esc_attr($contact->status); ?>">
+                                    <?php 
+                                    $statuses = array('new' => 'Mới', 'processing' => 'Đang xử lý', 'completed' => 'Hoàn thành');
+                                    echo esc_html($statuses[$contact->status] ?? 'Mới'); 
+                                    ?>
+                                </span>
+                            </td>
+                            <td><?php echo esc_html(date_i18n('d/m/Y H:i', strtotime($contact->created_at))); ?></td>
                             <td>
                                 <a href="<?php echo wp_nonce_url(admin_url('admin.php?page=quantrieu-contacts&action=delete&contact_id=' . $contact->id), 'delete_contact_' . $contact->id); ?>" 
                                    class="button button-small button-link-delete" 
@@ -127,7 +147,7 @@ function quantrieu_contact_admin_page() {
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="10" style="text-align: center; padding: 20px;">
+                        <td colspan="11" style="text-align: center; padding: 20px;">
                             <?php _e('Chưa có liên hệ nào.', 'quantrieu'); ?>
                         </td>
                     </tr>
@@ -145,6 +165,25 @@ function quantrieu_contact_admin_page() {
         }
         .button-link-delete:hover {
             color: #dc3232;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .status-new {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        .status-processing {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+        .status-completed {
+            background: #e8f5e9;
+            color: #388e3c;
         }
     </style>
     <?php

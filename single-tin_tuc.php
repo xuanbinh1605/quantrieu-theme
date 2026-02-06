@@ -51,20 +51,20 @@ while (have_posts()) : the_post();
 <article class="pt-24 pb-12 bg-background">
     <div class="container mx-auto px-4">
         <!-- Breadcrumb -->
-        <nav class="flex items-center gap-2 text-sm text-muted-foreground mb-8 bg-muted/30 py-3 px-4 rounded-lg">
-            <a class="hover:text-[#FF9800] transition-colors" href="<?php echo esc_url(home_url('/')); ?>">
+        <nav class="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mb-8 bg-muted/30 py-3 px-4 rounded-lg">
+            <a class="hover:text-[#FF9800] transition-colors whitespace-nowrap flex-shrink-0" href="<?php echo esc_url(home_url('/')); ?>">
                 Trang chủ
             </a>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right w-4 h-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right w-4 h-4 flex-shrink-0">
                 <path d="m9 18 6-6-6-6"></path>
             </svg>
-            <a class="hover:text-[#FF9800] transition-colors" href="<?php echo esc_url(get_post_type_archive_link('tin_tuc')); ?>">
+            <a class="hover:text-[#FF9800] transition-colors whitespace-nowrap flex-shrink-0" href="<?php echo esc_url(get_post_type_archive_link('tin_tuc')); ?>">
                 Tin tức
             </a>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right w-4 h-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right w-4 h-4 flex-shrink-0">
                 <path d="m9 18 6-6-6-6"></path>
             </svg>
-            <span class="text-foreground line-clamp-1"><?php the_title(); ?></span>
+            <span class="text-foreground min-w-0"><?php the_title(); ?></span>
         </nav>
         
         <!-- Main Content Layout -->

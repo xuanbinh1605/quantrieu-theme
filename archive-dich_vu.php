@@ -163,7 +163,7 @@ $services_query = new WP_Query($args);
         
         <!-- Services Grid/List -->
         <?php if ($services_query->have_posts()) : ?>
-            <div class="<?php echo $view_mode === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6' : 'space-y-6'; ?>">
+            <div class="<?php echo $view_mode === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6' : 'space-y-4'; ?>">
                 <?php while ($services_query->have_posts()) : $services_query->the_post(); ?>
                     <?php
                     $post_id = get_the_ID();
@@ -215,10 +215,10 @@ $services_query = new WP_Query($args);
                         </a>
                     <?php else : ?>
                         <!-- List View -->
-                        <a class="group flex flex-col sm:flex-row gap-4 bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border p-4" 
+                        <a class="group flex flex-col md:flex-row gap-6 bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border p-4" 
                            href="<?php the_permalink(); ?>">
                             <!-- Service Image -->
-                            <div class="w-full sm:w-48 flex-shrink-0 aspect-[4/3] sm:aspect-square overflow-hidden rounded-lg">
+                            <div class="w-full md:w-64 h-48 md:h-40 rounded-xl overflow-hidden flex-shrink-0">
                                 <?php if ($thumbnail) : ?>
                                     <img alt="<?php echo esc_attr(get_the_title()); ?>" 
                                          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
@@ -236,15 +236,30 @@ $services_query = new WP_Query($args);
                             
                             <!-- Content -->
                             <div class="flex-1 flex flex-col justify-center">
-                                <h3 class="text-xl font-semibold text-foreground mb-2 group-hover:text-[#FF9800] transition-colors">
+                                <h3 class="text-xl font-semibold mb-2 group-hover:text-[#FF9800] transition-colors">
                                     <?php the_title(); ?>
                                 </h3>
-                                <p class="text-muted-foreground line-clamp-2 mb-4">
+                                <p class="text-muted-foreground mb-4">
                                     <?php echo $excerpt ? esc_html($excerpt) : 'Xem chi tiết dịch vụ...'; ?>
                                 </p>
-                                <div class="flex items-center gap-2 text-[#FF9800]">
-                                    <span class="text-sm font-medium">Xem chi tiết</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
+                                
+                                <?php
+                                // Get content to extract features (if needed, can be customized per service)
+                                $content_text = get_the_content();
+                                ?>
+                                
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-[#FF9800]/10 text-[#FF9800] text-sm rounded-full">Thiết kế chuyên nghiệp</span>
+                                    <span class="px-3 py-1 bg-[#FF9800]/10 text-[#FF9800] text-sm rounded-full">Chất lượng cao</span>
+                                    <span class="px-3 py-1 bg-[#FF9800]/10 text-[#FF9800] text-sm rounded-full">Giá cạnh tranh</span>
+                                    <span class="px-3 py-1 bg-[#FF9800]/10 text-[#FF9800] text-sm rounded-full">Giao hàng nhanh</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Arrow Button -->
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-[#FF9800]/10 rounded-full flex items-center justify-center group-hover:bg-[#FF9800] transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5 text-[#FF9800] group-hover:text-white transition-colors">
                                         <path d="M5 12h14"></path>
                                         <path d="m12 5 7 7-7 7"></path>
                                     </svg>

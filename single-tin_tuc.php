@@ -182,6 +182,108 @@ while (have_posts()) : the_post();
     </div>
 </article>
 
+<!-- Related Posts Section -->
+<section class="py-20 bg-muted/50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 bg-[#FF9800]/10 text-[#FF9800] text-sm font-medium rounded-full mb-4">
+                BÀI VIẾT LIÊN QUAN
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Bài Viết Liên Quan</h2>
+            <p class="text-muted-foreground max-w-2xl mx-auto">
+                Khám phá thêm những bài viết hữu ích khác từ In Quan Triều
+            </p>
+        </div>
+        
+        <?php
+        // Get more related posts for the section (4 posts)
+        $section_related_args = array(
+            'post_type' => 'tin_tuc',
+            'posts_per_page' => 4,
+            'post__not_in' => array($post_id),
+            'orderby' => 'date',
+            'order' => 'DESC',
+        );
+        
+        if ($category_id) {
+            $section_related_args['tax_query'] = array(
+                array(
+                    'taxonomy' => 'danh_muc_tin_tuc',
+                    'field'    => 'term_id',
+                    'terms'    => $category_id,
+                ),
+            );
+        }
+        
+        $section_related = new WP_Query($section_related_args);
+        
+        if ($section_related->have_posts()) :
+        ?>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <?php while ($section_related->have_posts()) : $section_related->the_post(); ?>
+                    <?php
+                    $related_thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'large');
+                    $related_excerpt = get_the_excerpt();
+                    ?>
+                    <a class="group relative bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border" 
+                       href="<?php the_permalink(); ?>">
+                        <!-- Image -->
+                        <div class="aspect-[4/3] overflow-hidden">
+                            <?php if ($related_thumbnail) : ?>
+                                <img alt="<?php echo esc_attr(get_the_title()); ?>" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                                     src="<?php echo esc_url($related_thumbnail); ?>">
+                            <?php else : ?>
+                                <div class="w-full h-full bg-muted flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground">
+                                        <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+                                        <circle cx="9" cy="9" r="2"></circle>
+                                        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+                                    </svg>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        
+                        <!-- Gradient Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent"></div>
+                        
+                        <!-- Content -->
+                        <div class="absolute bottom-0 left-0 right-0 p-5">
+                            <h3 class="text-lg font-semibold text-background mb-1 group-hover:text-[#FF9800] transition-colors">
+                                <?php the_title(); ?>
+                            </h3>
+                            <p class="text-background/70 text-sm line-clamp-2">
+                                <?php echo $related_excerpt ? esc_html($related_excerpt) : 'Đọc thêm...'; ?>
+                            </p>
+                        </div>
+                        
+                        <!-- Arrow Icon -->
+                        <div class="absolute top-4 right-4 w-10 h-10 bg-background/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5 text-background">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+                <?php endwhile; ?>
+            </div>
+        <?php endif; ?>
+        <?php wp_reset_postdata(); ?>
+        
+        <!-- View All Button -->
+        <div class="text-center mt-12">
+            <a class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#FF9800] to-[#F44336] text-white font-medium rounded-full hover:shadow-lg hover:shadow-[#FF9800]/25 transition-all" 
+               href="<?php echo esc_url(get_post_type_archive_link('tin_tuc')); ?>">
+                Xem tất cả bài viết
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
 <?php
 endwhile;
 get_footer();

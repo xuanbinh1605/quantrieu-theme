@@ -40,7 +40,7 @@ function quantrieu_register_du_an_post_type() {
         'hierarchical'       => false,
         'menu_position'      => 8,
         'menu_icon'          => 'dashicons-admin-multisite',
-        'supports'           => array('title', 'editor', 'excerpt'),
+        'supports'           => array('title', 'editor', 'excerpt', 'thumbnail'),
         'show_in_rest'       => true,
     );
 

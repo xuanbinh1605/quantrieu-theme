@@ -10,7 +10,7 @@ get_header();
 
 <main id="primary" class="site-main">
     <!-- Hero Section -->
-    <section class="relative py-12 lg:py-16 pt-24 lg:pt-28 overflow-hidden bg-background">
+    <section class="relative py-12 lg:py-16 pt-24 lg:pt-28 overflow-hidden bg-background" data-animate="fade">
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center" style="margin-top: 3rem;">
                 <!-- Left Content -->
@@ -83,7 +83,7 @@ get_header();
     </section>
 
     <!-- Services Section -->
-    <section class="py-24 bg-muted/50">
+    <section class="py-24 bg-muted/50" data-animate="fade-up">
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="text-center mb-12 md:mb-16 px-2">
@@ -171,7 +171,7 @@ get_header();
     </section>
 
     <!-- About Us Section -->
-    <section class="py-24">
+    <section class="py-24" data-animate="fade-up">
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <!-- Left Image -->
@@ -291,7 +291,7 @@ get_header();
     </section>
 
     <!-- Process Section -->
-    <section class="py-24 bg-foreground text-background overflow-hidden">
+    <section class="py-24 bg-foreground text-background overflow-hidden" data-animate="fade-up">
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="text-center mb-12 md:mb-16 px-2">
@@ -392,7 +392,7 @@ get_header();
     </section>
 
     <!-- Clients Section -->
-    <section class="py-24 bg-muted/30">
+    <section class="py-24 bg-muted/30" data-animate="fade-up">
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="text-center mb-12 md:mb-16 px-2">
@@ -451,7 +451,7 @@ get_header();
     </section>
 
     <!-- News Section -->
-    <section class="py-24">
+    <section class="py-24" data-animate="fade-up">
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-12 px-2">

@@ -44,7 +44,7 @@ $categories = get_terms(array(
 ?>
 
 <!-- Hero Section -->
-<section class="relative pt-32 pb-20 bg-gradient-to-br from-foreground via-foreground/95 to-foreground overflow-hidden">
+<section class="relative pt-32 pb-20 bg-gradient-to-br from-foreground via-foreground/95 to-foreground overflow-hidden" data-animate="fade">
     <!-- Decorative Elements -->
     <div class="absolute inset-0 opacity-5">
         <div class="absolute top-20 left-10 w-72 h-72 border border-white rounded-full"></div>
@@ -108,7 +108,7 @@ $categories = get_terms(array(
 </section>
 
 <!-- Projects Grid Section -->
-<section class="py-20 bg-background">
+<section class="py-20 bg-background" data-animate="fade-up">
     <div class="container mx-auto px-4">
         <!-- Category Filters -->
         <div class="flex flex-wrap gap-3 mb-12 justify-center">

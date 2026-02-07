@@ -30,6 +30,9 @@ add_action('after_setup_theme', 'quantrieu_theme_setup');
 function quantrieu_enqueue_scripts() {
     wp_enqueue_style('quantrieu-style', get_stylesheet_uri(), array(), '1.0.0');
     
+    // Enqueue entrance animations script
+    wp_enqueue_script('quantrieu-entrance-animations', get_template_directory_uri() . '/js/entrance-animations.js', array(), '1.0.0', true);
+    
     // Enqueue contact form script on contact page
     if (is_page_template('page-lien-he.php')) {
         wp_enqueue_script('quantrieu-contact-form', get_template_directory_uri() . '/js/contact-form.js', array('jquery'), '1.0.0', true);

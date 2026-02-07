@@ -48,7 +48,7 @@ while (have_posts()) : the_post();
     $related_posts = new WP_Query($related_args);
 ?>
 
-<article class="pt-24 pb-12 bg-background">
+<article class="pt-24 pb-12 bg-background" data-animate="fade">
     <div class="container mx-auto px-4">
         <!-- Breadcrumb -->
         <nav class="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mb-8 bg-muted/30 py-3 px-4 rounded-lg">
@@ -70,7 +70,7 @@ while (have_posts()) : the_post();
         <!-- Main Content Layout -->
         <div class="flex flex-col lg:flex-row gap-8">
             <!-- Main Content -->
-            <div class="flex-1 lg:max-w-[calc(100%-320px)]">
+            <div class="flex-1 lg:max-w-[calc(100%-320px)]" data-animate="fade-up">
                 <!-- Featured Image -->
                 <?php if ($thumbnail) : ?>
                     <div class="relative aspect-video w-full rounded-lg overflow-hidden mb-6">
@@ -134,7 +134,7 @@ while (have_posts()) : the_post();
             </div>
             
             <!-- Sidebar -->
-            <aside class="w-full lg:w-[300px] flex-shrink-0">
+            <aside class="w-full lg:w-[300px] flex-shrink-0" data-animate="fade-left">
                 <div class="lg:sticky lg:top-24 space-y-6">
                     <!-- Contact Box -->
                     <div class="bg-muted/50 rounded-lg p-5">

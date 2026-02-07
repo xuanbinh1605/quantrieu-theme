@@ -9,7 +9,7 @@ get_header();
 
 <main id="primary" class="site-main">
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 bg-gradient-to-br from-foreground via-foreground/95 to-foreground overflow-hidden">
+    <section class="relative pt-32 pb-20 bg-gradient-to-br from-foreground via-foreground/95 to-foreground overflow-hidden" data-animate="fade">
         <div class="absolute inset-0 opacity-5">
             <div class="absolute top-20 left-10 w-72 h-72 border border-white rounded-full"></div>
             <div class="absolute bottom-10 right-20 w-96 h-96 border border-white rounded-full"></div>
@@ -43,7 +43,7 @@ get_header();
     </section>
 
     <!-- Về chúng tôi Section -->
-    <section class="py-20 lg:py-28">
+    <section class="py-20 lg:py-28" data-animate="fade-up">
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 <div class="relative">
@@ -119,7 +119,7 @@ get_header();
     </section>
 
     <!-- Định hướng phát triển Section -->
-    <section class="py-20 bg-muted/30">
+    <section class="py-20 bg-muted/30" data-animate="fade-up">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-2xl mx-auto mb-14">
                 <span class="inline-block px-4 py-1.5 bg-[#FF9800]/10 text-[#FF9800] text-sm font-semibold rounded-full mb-4">TẦM NHÌN & SỨ MỆNH</span>
@@ -162,7 +162,7 @@ get_header();
     </section>
 
     <!-- Tại sao chọn chúng tôi Section -->
-    <section class="py-20 lg:py-28">
+    <section class="py-20 lg:py-28" data-animate="fade-up">
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>

@@ -52,7 +52,7 @@ $categories = get_terms(array(
 ?>
 
 <!-- Hero Section -->
-<section class="relative pt-32 pb-16 bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f0f23] overflow-hidden">
+<section class="relative pt-32 pb-16 bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f0f23] overflow-hidden" data-animate="fade">
     <!-- Decorative pattern overlay -->
     <div class="absolute inset-0 opacity-10">
         <div class="absolute inset-0" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23ffffff' fillOpacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);"></div>
@@ -86,7 +86,7 @@ $categories = get_terms(array(
 </section>
 
 <!-- News Grid Section -->
-<section class="py-20 bg-background">
+<section class="py-20 bg-background" data-animate="fade-up">
     <div class="container mx-auto px-4">
         <!-- Search & Filter Section -->
         <div class="mb-12 space-y-6">

@@ -183,7 +183,7 @@ while (have_posts()) : the_post();
 </article>
 
 <!-- Related Posts Section -->
-<section class="py-20 bg-muted/50">
+<section class="py-20 bg-muted/50" data-animate="fade-up">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <span class="inline-block px-4 py-1.5 bg-[#FF9800]/10 text-[#FF9800] text-sm font-medium rounded-full mb-4">

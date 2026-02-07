@@ -1,5 +1,5 @@
 <!-- CTA Section -->
-<section class="py-16 relative overflow-hidden bg-primary">
+<section class="py-16 relative overflow-hidden bg-primary" data-animate="fade-up">
     <div class="container mx-auto px-4 relative z-10">
         <div class="max-w-3xl mx-auto text-center text-primary-foreground">
             <h2 class="text-primary-foreground mb-4 text-balance">Bạn Cần Tư Vấn Dịch Vụ In Ấn?</h2>

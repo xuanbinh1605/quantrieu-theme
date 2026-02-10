@@ -14,12 +14,12 @@
             <!-- Logo -->
             <a class="flex items-center gap-2" href="<?php echo esc_url(home_url('/')); ?>">
                 <?php 
-                $logo_id = 7;
-                echo wp_get_attachment_image($logo_id, 'full', false, array(
-                    'alt' => get_bloginfo('name'),
-                    'class' => 'h-10 md:h-14 w-auto',
-                    'loading' => 'eager'
-                ));
+                $logo_url = quantrieu_get_logo();
+                if ($logo_url) {
+                    echo '<img src="' . esc_url($logo_url) . '" alt="' . esc_attr(get_bloginfo('name')) . '" class="h-10 md:h-14 w-auto" loading="eager">';
+                } else {
+                    echo '<span class="text-xl font-bold">' . esc_html(get_bloginfo('name')) . '</span>';
+                }
                 ?>
             </a>
 
@@ -98,12 +98,15 @@
 
             <!-- Desktop Actions -->
             <div class="lg:flex hidden items-center gap-4" style="display: flex;">
-                <a href="tel:0909123456" class="flex items-center gap-2 text-primary font-semibold">
+                <?php $phone = quantrieu_get_phone(); ?>
+                <?php if ($phone): ?>
+                <a href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', $phone)); ?>" class="flex items-center gap-2 text-primary font-semibold">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone w-5 h-5">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                     </svg>
-                    0909 123 456
+                    <?php echo esc_html($phone); ?>
                 </a>
+                <?php endif; ?>
                 <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] bg-primary hover:bg-primary/90 h-9 px-4 py-2 bg-gradient-to-r from-[#FF9800] to-[#F44336] hover:from-[#F57C00] hover:to-[#E53935] text-white shadow-lg">
                     Nhận báo giá
                 </button>
@@ -183,12 +186,15 @@
                 
                 <!-- Mobile Actions -->
                 <div class="mt-4 space-y-3">
-                    <a href="tel:0909123456" class="flex items-center justify-center gap-2 text-primary font-semibold py-2">
+                    <?php $phone = quantrieu_get_phone(); ?>
+                    <?php if ($phone): ?>
+                    <a href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', $phone)); ?>" class="flex items-center justify-center gap-2 text-primary font-semibold py-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone w-5 h-5">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
-                        0909 123 456
+                        <?php echo esc_html($phone); ?>
                     </a>
+                    <?php endif; ?>
                     <button data-slot="button" class="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all bg-gradient-to-r from-[#FF9800] to-[#F44336] hover:from-[#F57C00] hover:to-[#E53935] text-white shadow-lg h-10 px-4">
                         Nhận báo giá
                     </button>

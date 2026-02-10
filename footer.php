@@ -4,18 +4,12 @@
             <!-- Company Info -->
             <div>
                 <?php 
-                $logo_id = 7;
-                $logo_image = wp_get_attachment_image($logo_id, 'full', false, array(
-                    'alt' => 'In Quan Triều',
-                    'class' => 'h-16 w-auto mb-6',
-                    'loading' => 'lazy'
-                ));
-                
-                if ($logo_image) {
-                    echo $logo_image;
+                $logo_url = quantrieu_get_logo();
+                if ($logo_url) {
+                    echo '<img src="' . esc_url($logo_url) . '" alt="' . esc_attr(get_bloginfo('name')) . '" class="h-16 w-auto mb-6" loading="lazy">';
                 } else {
                     // Fallback to text logo if image doesn't exist
-                    echo '<div class="h-16 mb-6 flex items-center"><span class="text-2xl font-bold text-background">In Quan Triều</span></div>';
+                    echo '<div class="h-16 mb-6 flex items-center"><span class="text-2xl font-bold text-background">' . esc_html(get_bloginfo('name')) . '</span></div>';
                 }
                 ?>
                 <p class="text-background/70 leading-relaxed mb-6">
@@ -99,33 +93,45 @@
             <div>
                 <h3 class="text-lg font-semibold mb-6 text-[#FF9800]">Thông tin liên hệ</h3>
                 <ul class="space-y-4">
+                    <?php $address = quantrieu_get_address(); ?>
+                    <?php if ($address): ?>
                     <li class="flex gap-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-5 h-5 text-[#FF9800] flex-shrink-0 mt-0.5">
                             <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
                             <circle cx="12" cy="10" r="3"></circle>
                         </svg>
-                        <span class="text-background/70">123 Đường ABC, Quận XYZ, TP. Hồ Chí Minh</span>
+                        <span class="text-background/70"><?php echo esc_html($address); ?></span>
                     </li>
+                    <?php endif; ?>
+                    <?php $phone = quantrieu_get_phone(); ?>
+                    <?php if ($phone): ?>
                     <li class="flex gap-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone w-5 h-5 text-[#FF9800] flex-shrink-0">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
-                        <a href="tel:0909123456" class="text-background/70 hover:text-[#FF9800] transition-colors">0909 123 456</a>
+                        <a href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', $phone)); ?>" class="text-background/70 hover:text-[#FF9800] transition-colors"><?php echo esc_html($phone); ?></a>
                     </li>
+                    <?php endif; ?>
+                    <?php $email = quantrieu_get_email(); ?>
+                    <?php if ($email): ?>
                     <li class="flex gap-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail w-5 h-5 text-[#FF9800] flex-shrink-0">
                             <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                         </svg>
-                        <a href="mailto:info@inquantrieu.com" class="text-background/70 hover:text-[#FF9800] transition-colors">info@inquantrieu.com</a>
+                        <a href="mailto:<?php echo esc_attr($email); ?>" class="text-background/70 hover:text-[#FF9800] transition-colors"><?php echo esc_html($email); ?></a>
                     </li>
+                    <?php endif; ?>
+                    <?php $open_hours = quantrieu_get_open_hours(); ?>
+                    <?php if ($open_hours): ?>
                     <li class="flex gap-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock w-5 h-5 text-[#FF9800] flex-shrink-0">
                             <circle cx="12" cy="12" r="10"></circle>
                             <polyline points="12 6 12 12 16 14"></polyline>
                         </svg>
-                        <span class="text-background/70">08:00 - 18:00 (T2 - T7)</span>
+                        <span class="text-background/70"><?php echo esc_html($open_hours); ?></span>
                     </li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

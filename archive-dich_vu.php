@@ -69,32 +69,34 @@ $services_query = new WP_Query($args);
         <!-- Page Title -->
         <div class="max-w-3xl">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance">
-                Dịch Vụ <span class="bg-gradient-to-r from-[#FF9800] to-[#F44336] bg-clip-text text-transparent">In Ấn</span>
+                <?php echo wp_kses_post(quantrieu_get_archive_services_hero_heading()); ?>
             </h1>
             <p class="text-lg md:text-xl text-white/70 leading-relaxed">
-                Đa dạng dịch vụ in ấn chuyên nghiệp đáp ứng mọi nhu cầu từ in ấn văn phòng đến quảng cáo thương mại. Chất lượng cao, giá cả cạnh tranh, giao hàng nhanh chóng.
+                <?php echo esc_html(quantrieu_get_archive_services_hero_description()); ?>
             </p>
         </div>
         
         <!-- Stats -->
+        <?php if (quantrieu_get_archive_services_stats_show()) : ?>
         <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl">
             <div class="text-center">
-                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1">8+</div>
-                <div class="text-white/60 text-sm">Dịch vụ chính</div>
+                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1"><?php echo esc_html(quantrieu_get_archive_services_stat1_number()); ?></div>
+                <div class="text-white/60 text-sm"><?php echo esc_html(quantrieu_get_archive_services_stat1_text()); ?></div>
             </div>
             <div class="text-center">
-                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1">50+</div>
-                <div class="text-white/60 text-sm">Loại sản phẩm</div>
+                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1"><?php echo esc_html(quantrieu_get_archive_services_stat2_number()); ?></div>
+                <div class="text-white/60 text-sm"><?php echo esc_html(quantrieu_get_archive_services_stat2_text()); ?></div>
             </div>
             <div class="text-center">
-                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1">24h</div>
-                <div class="text-white/60 text-sm">In gấp nhanh</div>
+                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1"><?php echo esc_html(quantrieu_get_archive_services_stat3_number()); ?></div>
+                <div class="text-white/60 text-sm"><?php echo esc_html(quantrieu_get_archive_services_stat3_text()); ?></div>
             </div>
             <div class="text-center">
-                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1">100%</div>
-                <div class="text-white/60 text-sm">Hài lòng</div>
+                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1"><?php echo esc_html(quantrieu_get_archive_services_stat4_number()); ?></div>
+                <div class="text-white/60 text-sm"><?php echo esc_html(quantrieu_get_archive_services_stat4_text()); ?></div>
             </div>
         </div>
+        <?php endif; ?>
     </div>
 </section>
 
@@ -113,7 +115,7 @@ $services_query = new WP_Query($args);
                     <input 
                         data-slot="input" 
                         class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive pl-10" 
-                        placeholder="Tìm kiếm dịch vụ..." 
+                        placeholder="<?php echo esc_attr(quantrieu_get_archive_services_search_placeholder()); ?>" 
                         type="text"
                         name="search"
                         id="services-search-input"
@@ -155,9 +157,9 @@ $services_query = new WP_Query($args);
         
         <!-- Results Count -->
         <p class="text-muted-foreground mb-8">
-            Hiển thị <?php echo $services_query->post_count; ?> dịch vụ
+            <?php echo sprintf(esc_html(quantrieu_get_archive_services_results_text()), $services_query->post_count); ?>
             <?php if ($services_query->found_posts > $services_query->post_count) : ?>
-                / <?php echo $services_query->found_posts; ?> tổng
+                <?php echo sprintf(esc_html(quantrieu_get_archive_services_total_results_text()), $services_query->found_posts); ?>
             <?php endif; ?>
         </p>
         
@@ -249,10 +251,10 @@ $services_query = new WP_Query($args);
                                 ?>
                                 
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-[#FF9800]/10 text-[#FF9800] text-sm rounded-full">Thiết kế chuyên nghiệp</span>
-                                    <span class="px-3 py-1 bg-[#FF9800]/10 text-[#FF9800] text-sm rounded-full">Chất lượng cao</span>
-                                    <span class="px-3 py-1 bg-[#FF9800]/10 text-[#FF9800] text-sm rounded-full">Giá cạnh tranh</span>
-                                    <span class="px-3 py-1 bg-[#FF9800]/10 text-[#FF9800] text-sm rounded-full">Giao hàng nhanh</span>
+                                    <span class="px-3 py-1 bg-[#FF9800]/10 text-[#FF9800] text-sm rounded-full"><?php echo esc_html(quantrieu_get_archive_services_feature_tag1()); ?></span>
+                                    <span class="px-3 py-1 bg-[#FF9800]/10 text-[#FF9800] text-sm rounded-full"><?php echo esc_html(quantrieu_get_archive_services_feature_tag2()); ?></span>
+                                    <span class="px-3 py-1 bg-[#FF9800]/10 text-[#FF9800] text-sm rounded-full"><?php echo esc_html(quantrieu_get_archive_services_feature_tag3()); ?></span>
+                                    <span class="px-3 py-1 bg-[#FF9800]/10 text-[#FF9800] text-sm rounded-full"><?php echo esc_html(quantrieu_get_archive_services_feature_tag4()); ?></span>
                                 </div>
                             </div>
                             
@@ -343,17 +345,17 @@ $services_query = new WP_Query($args);
                     <circle cx="11" cy="11" r="8"></circle>
                     <path d="m21 21-4.3-4.3"></path>
                 </svg>
-                <h3 class="text-xl font-semibold mb-2">Không tìm thấy dịch vụ</h3>
+                <h3 class="text-xl font-semibold mb-2"><?php echo esc_html(quantrieu_get_archive_services_no_results_title()); ?></h3>
                 <p class="text-muted-foreground mb-6">
                     <?php if (!empty($search_query)) : ?>
-                        Không có dịch vụ nào phù hợp với từ khóa "<?php echo esc_html($search_query); ?>".
+                        <?php echo sprintf(esc_html(quantrieu_get_archive_services_no_results_text()), esc_html($search_query)); ?>
                     <?php else : ?>
-                        Không có dịch vụ nào.
+                        <?php echo esc_html(quantrieu_get_archive_services_no_results_general()); ?>
                     <?php endif; ?>
                 </p>
                 <a href="<?php echo esc_url(get_post_type_archive_link('dich_vu')); ?>" 
                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-9 px-4 py-2 bg-[#FF9800] text-white hover:bg-[#FF9800]/90">
-                    Xem tất cả dịch vụ
+                    <?php echo esc_html(quantrieu_get_archive_services_no_results_button()); ?>
                 </a>
             </div>
         <?php endif; ?>

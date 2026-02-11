@@ -18,50 +18,44 @@ get_header();
                     <!-- Badge -->
                     <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full text-primary text-xs md:text-sm font-medium mb-4 mx-auto lg:mx-0">
                         <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
-                        In ấn chuyên nghiệp tại TP.HCM
+                        <?php echo esc_html(quantrieu_get_hero_badge_text()); ?>
                     </div>
 
                     <!-- Heading -->
                     <h1 class="mb-4 text-balance text-center lg:text-left">
-                        Dịch Vụ <span class="text-primary">In Ấn Trọn Gói</span> Chất Lượng Cao
+                        <?php echo wp_kses_post(quantrieu_get_hero_heading()); ?>
                     </h1>
 
                     <!-- Description -->
                     <p class="text-muted-foreground mb-6 max-w-lg text-center lg:text-left mx-auto lg:mx-0">
-                        In Quan Triều cung cấp đa dạng dịch vụ in ấn từ Standee, Banner, Backdrop đến in UV, Decal với công nghệ hiện đại, giá cả cạnh tranh và giao hàng nhanh toàn quốc.
+                        <?php echo esc_html(quantrieu_get_hero_description()); ?>
                     </p>
 
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row gap-3 mb-8 justify-center lg:justify-start">
-                        <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-md px-6 has-[>svg]:px-4 btn-primary btn-lg">
-                            Nhận báo giá ngay
+                        <a href="<?php echo esc_url(quantrieu_get_hero_cta1_link()); ?>" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-md px-6 has-[>svg]:px-4 btn-primary btn-lg">
+                            <?php echo esc_html(quantrieu_get_hero_cta1_text()); ?>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4">
                                 <path d="M5 12h14"></path>
                                 <path d="m12 5 7 7-7 7"></path>
                             </svg>
-                        </button>
-                        <a href="tel:0909123456" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-10 rounded-md px-6 has-[>svg]:px-4 btn-outline btn-lg bg-transparent">
+                        </a>
+                        <a href="tel:<?php echo esc_attr(str_replace(' ', '', quantrieu_get_hero_phone())); ?>" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-10 rounded-md px-6 has-[>svg]:px-4 btn-outline btn-lg bg-transparent">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone w-4 h-4">
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                             </svg>
-                            0909 123 456
+                            <?php echo esc_html(quantrieu_get_hero_phone()); ?>
                         </a>
                     </div>
 
                     <!-- Stats -->
                     <div class="flex gap-6 md:gap-8 justify-center lg:justify-start">
+                        <?php $stats = quantrieu_get_hero_stats(); foreach ($stats as $stat) : ?>
                         <div>
-                            <div class="text-2xl font-bold text-primary">10+</div>
-                            <div class="text-sm text-muted-foreground">Năm kinh nghiệm</div>
+                            <div class="text-2xl font-bold text-primary"><?php echo esc_html($stat['number']); ?></div>
+                            <div class="text-sm text-muted-foreground"><?php echo esc_html($stat['text']); ?></div>
                         </div>
-                        <div>
-                            <div class="text-2xl font-bold text-primary">5000+</div>
-                            <div class="text-sm text-muted-foreground">Khách hàng</div>
-                        </div>
-                        <div>
-                            <div class="text-2xl font-bold text-primary">99%</div>
-                            <div class="text-sm text-muted-foreground">Hài lòng</div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
 
@@ -69,7 +63,7 @@ get_header();
                 <div class="relative">
                     <div class="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
                         <?php 
-                        $hero_image_id = 14;
+                        $hero_image_id = quantrieu_get_hero_image_id();
                         echo wp_get_attachment_image($hero_image_id, 'full', false, array(
                             'alt' => 'Dịch vụ in ấn chuyên nghiệp',
                             'class' => 'w-full h-full object-cover',
@@ -87,9 +81,9 @@ get_header();
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="text-center mb-12 md:mb-16 px-2">
-                <span class="inline-block px-3 md:px-4 py-1.5 bg-[#FF9800]/10 text-[#FF9800] text-xs md:text-sm font-medium rounded-full mb-4">OUR SERVICES</span>
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-balance">Dịch Vụ Của Chúng Tôi</h2>
-                <p class="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">Đa dạng dịch vụ in ấn đáp ứng mọi nhu cầu từ in ấn văn phòng đến quảng cáo thương mại</p>
+                <span class="inline-block px-3 md:px-4 py-1.5 bg-[#FF9800]/10 text-[#FF9800] text-xs md:text-sm font-medium rounded-full mb-4"><?php echo esc_html(quantrieu_get_services_badge()); ?></span>
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-balance"><?php echo esc_html(quantrieu_get_services_title()); ?></h2>
+                <p class="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base"><?php echo esc_html(quantrieu_get_services_description()); ?></p>
             </div>
 
             <!-- Services Grid -->
@@ -98,7 +92,7 @@ get_header();
                 // Query dich-vu posts
                 $services_query = new WP_Query(array(
                     'post_type' => 'dich_vu',
-                    'posts_per_page' => 8,
+                    'posts_per_page' => quantrieu_get_services_count(),
                     'orderby' => 'date',
                     'order' => 'DESC'
                 ));
@@ -160,7 +154,7 @@ get_header();
             <!-- View All Button -->
             <div class="text-center mt-12">
                 <a class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#FF9800] to-[#F44336] text-white font-medium rounded-full hover:shadow-lg hover:shadow-[#FF9800]/25 transition-all" href="<?php echo esc_url(get_post_type_archive_link('dich_vu')); ?>">
-                    Xem tất cả dịch vụ
+                    <?php echo esc_html(quantrieu_get_services_view_all_text()); ?>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5">
                         <path d="M5 12h14"></path>
                         <path d="m12 5 7 7-7 7"></path>
@@ -178,7 +172,7 @@ get_header();
                 <div class="relative">
                     <div class="relative aspect-[4/3] rounded-3xl overflow-hidden">
                         <?php 
-                        $about_image_id = 31; // WordPress media ID for about image
+                        $about_image_id = quantrieu_get_about_image_id(); // WordPress media ID for about image
                         echo wp_get_attachment_image($about_image_id, 'full', false, array(
                             'alt' => 'Xưởng in Quan Triều',
                             'class' => 'w-full h-full object-cover'
@@ -186,106 +180,72 @@ get_header();
                         ?>
                     </div>
                     <div class="absolute -bottom-8 -right-7 bg-card rounded-2xl shadow-2xl p-6 max-w-xs">
-                        <div class="text-4xl font-bold bg-gradient-to-r from-[#FF9800] to-[#F44336] bg-clip-text text-transparent mb-2">10+</div>
+                        <div class="text-4xl font-bold bg-gradient-to-r from-[#FF9800] to-[#F44336] bg-clip-text text-transparent mb-2"><?php echo esc_html(quantrieu_get_about_experience_years()); ?></div>
                         <p class="text-muted-foreground">Năm kinh nghiệm trong ngành in ấn</p>
                     </div>
                 </div>
 
                 <!-- Right Content -->
                 <div class="text-center lg:text-left">
-                    <span class="inline-block px-3 md:px-4 py-1.5 bg-[#0090ff]/10 text-[#0090ff] text-xs md:text-sm font-medium rounded-full mb-4">ABOUT US</span>
-                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-balance">Về Chúng Tôi</h2>
+                    <span class="inline-block px-3 md:px-4 py-1.5 bg-[#0090ff]/10 text-[#0090ff] text-xs md:text-sm font-medium rounded-full mb-4"><?php echo esc_html(quantrieu_get_about_badge()); ?></span>
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-balance"><?php echo esc_html(quantrieu_get_about_title()); ?></h2>
                     <p class="text-muted-foreground leading-relaxed mb-6">
-                        In Quan Triều cung cấp nhiều dịch vụ in đa dạng theo nhu cầu về chất liệu và thiết kế của khách hàng. Với đội ngũ nhân viên giàu kinh nghiệm và hệ thống máy móc hiện đại, chúng tôi cam kết mang đến sản phẩm in ấn chất lượng cao với giá cả cạnh tranh nhất.
+                        <?php echo esc_html(quantrieu_get_about_description()); ?>
                     </p>
 
                     <!-- Features List -->
                     <ul class="space-y-3 mb-8">
+                        <?php $features = quantrieu_get_about_features(); foreach ($features as $feature) : ?>
                         <li class="flex items-start gap-3">
                             <div class="w-5 h-5 rounded-full bg-[#FF9800]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-3 h-3 text-[#FF9800]">
                                     <path d="M20 6 9 17l-5-5"></path>
                                 </svg>
                             </div>
-                            <span class="text-foreground">Công nghệ in hiện đại, độ phân giải cao</span>
+                            <span class="text-foreground"><?php echo esc_html($feature); ?></span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-[#FF9800]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-3 h-3 text-[#FF9800]">
-                                    <path d="M20 6 9 17l-5-5"></path>
-                                </svg>
-                            </div>
-                            <span class="text-foreground">Đa dạng chất liệu: PP, Hiflex, Canvas, Decal, UV...</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-[#FF9800]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-3 h-3 text-[#FF9800]">
-                                    <path d="M20 6 9 17l-5-5"></path>
-                                </svg>
-                            </div>
-                            <span class="text-foreground">Đội ngũ thiết kế chuyên nghiệp hỗ trợ 24/7</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-[#FF9800]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-3 h-3 text-[#FF9800]">
-                                    <path d="M20 6 9 17l-5-5"></path>
-                                </svg>
-                            </div>
-                            <span class="text-foreground">Cam kết giao hàng đúng hẹn</span>
-                        </li>
+                        <?php endforeach; ?>
                     </ul>
 
-                    <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-9 px-4 py-2 has-[>svg]:px-3 bg-[#0090ff] hover:bg-[#0070cc] text-white">
-                        Xem thêm về chúng tôi
-                    </button>
+                    <a href="<?php echo esc_url(quantrieu_get_about_cta_link()); ?>" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-9 px-4 py-2 has-[>svg]:px-3 bg-[#0090ff] hover:bg-[#0070cc] text-white">
+                        <?php echo esc_html(quantrieu_get_about_cta_text()); ?>
+                    </a>
                 </div>
             </div>
 
             <!-- Benefits Grid -->
             <div class="grid sm:grid-cols-3 gap-6 mt-20">
-                <!-- Benefit 1 -->
+                <?php 
+                $benefits = quantrieu_get_benefits();
+                $benefit_icons = array(
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck w-7 h-7 text-white">
+                        <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
+                        <path d="M15 18H9"></path>
+                        <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path>
+                        <circle cx="17" cy="18" r="2"></circle>
+                        <circle cx="7" cy="18" r="2"></circle>
+                    </svg>',
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-7 h-7 text-white">
+                        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+                    </svg>',
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-credit-card w-7 h-7 text-white">
+                        <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                        <line x1="2" x2="22" y1="10" y2="10"></line>
+                    </svg>'
+                );
+                
+                foreach ($benefits as $index => $benefit) : ?>
+                <!-- Benefit <?php echo $index + 1; ?> -->
                 <div class="flex items-start gap-4 p-6 bg-muted/50 rounded-2xl">
                     <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FF9800] to-[#F44336] flex items-center justify-center flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck w-7 h-7 text-white">
-                            <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
-                            <path d="M15 18H9"></path>
-                            <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path>
-                            <circle cx="17" cy="18" r="2"></circle>
-                            <circle cx="7" cy="18" r="2"></circle>
-                        </svg>
+                        <?php echo $benefit_icons[$index]; ?>
                     </div>
                     <div>
-                        <h3 class="font-semibold mb-1">Giao hàng toàn quốc</h3>
-                        <p class="text-sm text-muted-foreground">Vận chuyển nhanh chóng đến tận nơi</p>
+                        <h3 class="font-semibold mb-1"><?php echo esc_html($benefit['title']); ?></h3>
+                        <p class="text-sm text-muted-foreground"><?php echo esc_html($benefit['description']); ?></p>
                     </div>
                 </div>
-
-                <!-- Benefit 2 -->
-                <div class="flex items-start gap-4 p-6 bg-muted/50 rounded-2xl">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FF9800] to-[#F44336] flex items-center justify-center flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-7 h-7 text-white">
-                            <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold mb-1">Miễn phí Ship nội thành</h3>
-                        <p class="text-sm text-muted-foreground">Freeship cho đơn hàng nội thành HCM</p>
-                    </div>
-                </div>
-
-                <!-- Benefit 3 -->
-                <div class="flex items-start gap-4 p-6 bg-muted/50 rounded-2xl">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FF9800] to-[#F44336] flex items-center justify-center flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-credit-card w-7 h-7 text-white">
-                            <rect width="20" height="14" x="2" y="5" rx="2"></rect>
-                            <line x1="2" x2="22" y1="10" y2="10"></line>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold mb-1">Thanh toán linh hoạt</h3>
-                        <p class="text-sm text-muted-foreground">Đa dạng hình thức thanh toán</p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
@@ -296,10 +256,10 @@ get_header();
             <!-- Section Header -->
             <div class="text-center mb-12 md:mb-16 px-2">
                 <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-balance">
-                    Quy Trình In Ấn Tại <span class="text-[#FF9800]">Quan Triều</span>
+                    <?php echo wp_kses_post(quantrieu_get_process_title()); ?>
                 </h2>
                 <p class="text-background/70 max-w-2xl mx-auto text-sm md:text-base">
-                    Chúng tôi luôn đảm bảo chất lượng in ấn qua từng khâu làm việc chuyên nghiệp
+                    <?php echo esc_html(quantrieu_get_process_description()); ?>
                 </p>
             </div>
 
@@ -381,12 +341,13 @@ get_header();
 
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3 bg-gradient-to-r from-[#FF9800] to-[#F44336] hover:from-[#F57C00] hover:to-[#E53935] text-white">
-                    Xem chi tiết quy trình
-                </button>
-                <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border shadow-xs hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 border-background/30 text-background hover:bg-background/10 bg-transparent">
-                    Tư vấn dịch vụ
-                </button>
+                <?php $cta_buttons = quantrieu_get_process_cta_buttons(); ?>
+                <a href="<?php echo esc_url($cta_buttons[0]['link']); ?>" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3 bg-gradient-to-r from-[#FF9800] to-[#F44336] hover:from-[#F57C00] hover:to-[#E53935] text-white">
+                    <?php echo esc_html($cta_buttons[0]['text']); ?>
+                </a>
+                <a href="<?php echo esc_url($cta_buttons[1]['link']); ?>" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border shadow-xs hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 border-background/30 text-background hover:bg-background/10 bg-transparent">
+                    <?php echo esc_html($cta_buttons[1]['text']); ?>
+                </a>
             </div>
         </div>
     </section>
@@ -396,9 +357,9 @@ get_header();
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="text-center mb-12 md:mb-16 px-2">
-                <span class="inline-block px-3 md:px-4 py-1.5 bg-[#0090ff]/10 text-[#0090ff] text-xs md:text-sm font-medium rounded-full mb-4">CLIENT</span>
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Khách Hàng Của Chúng Tôi</h2>
-                <p class="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">Được tin tưởng bởi hàng nghìn doanh nghiệp trên toàn quốc</p>
+                <span class="inline-block px-3 md:px-4 py-1.5 bg-[#0090ff]/10 text-[#0090ff] text-xs md:text-sm font-medium rounded-full mb-4"><?php echo esc_html(quantrieu_get_clients_badge()); ?></span>
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4"><?php echo esc_html(quantrieu_get_clients_title()); ?></h2>
+                <p class="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base"><?php echo esc_html(quantrieu_get_clients_description()); ?></p>
             </div>
 
             <!-- Clients Grid -->
@@ -407,7 +368,7 @@ get_header();
                 // Query khach-hang posts
                 $clients_query = new WP_Query(array(
                     'post_type' => 'khach_hang',
-                    'posts_per_page' => 8,
+                    'posts_per_page' => quantrieu_get_clients_count(),
                     'orderby' => 'date',
                     'order' => 'DESC'
                 ));
@@ -456,11 +417,11 @@ get_header();
             <!-- Section Header -->
             <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-12 px-2">
                 <div class="text-center sm:text-left">
-                    <span class="inline-block px-3 md:px-4 py-1.5 bg-[#FF9800]/10 text-[#FF9800] text-xs md:text-sm font-medium rounded-full mb-4">NEWS</span>
-                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold">Tin Tức & Kiến Thức In Ấn</h2>
+                    <span class="inline-block px-3 md:px-4 py-1.5 bg-[#FF9800]/10 text-[#FF9800] text-xs md:text-sm font-medium rounded-full mb-4"><?php echo esc_html(quantrieu_get_news_badge()); ?></span>
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold"><?php echo esc_html(quantrieu_get_news_title()); ?></h2>
                 </div>
                 <a class="inline-flex items-center gap-2 text-[#0090ff] hover:text-[#0070cc] font-medium" href="<?php echo esc_url(get_post_type_archive_link('tin_tuc')); ?>">
-                    Xem tất cả
+                    <?php echo esc_html(quantrieu_get_news_view_all_text()); ?>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5">
                         <path d="M5 12h14"></path>
                         <path d="m12 5 7 7-7 7"></path>
@@ -474,7 +435,7 @@ get_header();
                 // Query tin-tuc posts
                 $news_query = new WP_Query(array(
                     'post_type' => 'tin_tuc',
-                    'posts_per_page' => 3,
+                    'posts_per_page' => quantrieu_get_news_count(),
                     'orderby' => 'date',
                     'order' => 'DESC'
                 ));

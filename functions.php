@@ -65,3 +65,4 @@ require_once get_template_directory() . '/ajax/contact-form-handler.php';
 
 // Include customizer settings
 require_once get_template_directory() . '/customizer-general.php';
+require_once get_template_directory() . '/customizer-trang-chu.php';

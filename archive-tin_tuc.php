@@ -73,13 +73,13 @@ $categories = get_terms(array(
         <!-- Page Title -->
         <div class="max-w-3xl">
             <span class="inline-block px-4 py-1.5 bg-[#FF9800]/20 text-[#FF9800] text-sm font-medium rounded-full mb-4">
-                TIN TỨC &amp; KIẾN THỨC
+                <?php echo esc_html(quantrieu_get_archive_news_hero_badge()); ?>
             </span>
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Tin Tức &amp; Kiến Thức <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FF9800] to-[#F44336]">In Ấn</span>
+                <?php echo wp_kses_post(quantrieu_get_archive_news_hero_heading()); ?>
             </h1>
             <p class="text-lg text-white/70">
-                Cập nhật những tin tức mới nhất về ngành in ấn, kiến thức hữu ích và xu hướng thiết kế từ đội ngũ chuyên gia In Quan Triều.
+                <?php echo esc_html(quantrieu_get_archive_news_hero_description()); ?>
             </p>
         </div>
     </div>
@@ -101,7 +101,7 @@ $categories = get_terms(array(
                         <input 
                             data-slot="input" 
                             class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input w-full min-w-0 border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive pl-12 h-12 rounded-full" 
-                            placeholder="Tìm kiếm bài viết..." 
+                            placeholder="<?php echo esc_attr(quantrieu_get_archive_news_search_placeholder()); ?>" 
                             type="text" 
                             name="search"
                             id="news-search-input"
@@ -119,7 +119,7 @@ $categories = get_terms(array(
                 <a href="<?php echo esc_url(get_post_type_archive_link('tin_tuc')); ?>" 
                    data-slot="button" 
                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-9 px-4 py-2 has-[>svg]:px-3 <?php echo empty($current_category) && empty($search_query) ? 'bg-[#FF9800] hover:bg-[#FF9800]/90 text-white' : 'border bg-background shadow-xs hover:bg-accent dark:bg-input/30 dark:border-input dark:hover:bg-input/50 hover:border-[#FF9800] hover:text-[#FF9800]'; ?>">
-                    Tất cả
+                    <?php echo esc_html(quantrieu_get_archive_news_filter_all_text()); ?>
                 </a>
                 
                 <?php if (!is_wp_error($categories) && !empty($categories)) : ?>
@@ -142,9 +142,9 @@ $categories = get_terms(array(
         
         <!-- Results Count -->
         <p class="text-muted-foreground mb-8 text-center">
-            Hiển thị <?php echo $news_query->post_count; ?> bài viết
+            <?php echo sprintf(esc_html(quantrieu_get_archive_news_results_text()), $news_query->post_count); ?>
             <?php if ($news_query->found_posts > $news_query->post_count) : ?>
-                / <?php echo $news_query->found_posts; ?> tổng
+                <?php echo sprintf(esc_html(quantrieu_get_archive_news_total_results_text()), $news_query->found_posts); ?>
             <?php endif; ?>
         </p>
         
@@ -217,7 +217,7 @@ $categories = get_terms(array(
                                             <circle cx="12" cy="12" r="10"></circle>
                                             <polyline points="12 6 12 12 16 14"></polyline>
                                         </svg>
-                                        <span><?php echo $reading_time; ?> phút</span>
+                                        <span><?php echo sprintf(esc_html(quantrieu_get_archive_news_reading_time_text()), $reading_time); ?></span>
                                     </div>
                                 </div>
                                 
@@ -228,13 +228,13 @@ $categories = get_terms(array(
                                 
                                 <!-- Excerpt -->
                                 <p class="text-muted-foreground mb-4 line-clamp-2">
-                                    <?php echo $excerpt ? esc_html($excerpt) : 'Đọc thêm...'; ?>
+                                    <?php echo $excerpt ? esc_html($excerpt) : esc_html(quantrieu_get_archive_news_default_excerpt()); ?>
                                 </p>
                                 
                                 <!-- Read More & Arrow -->
                                 <div class="flex items-center justify-between">
                                     <span class="text-sm font-medium text-[#FF9800]">
-                                        Đọc thêm
+                                        <?php echo esc_html(quantrieu_get_archive_news_read_more_text()); ?>
                                     </span>
                                     <div class="w-10 h-10 bg-[#FF9800]/10 rounded-full flex items-center justify-center group-hover:bg-[#FF9800] transition-colors">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5 text-[#FF9800] group-hover:text-white transition-colors">
@@ -321,17 +321,17 @@ $categories = get_terms(array(
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.3-4.3"></path>
                     </svg>
-                    <h3 class="text-xl font-semibold mb-2">Không tìm thấy bài viết</h3>
+                    <h3 class="text-xl font-semibold mb-2"><?php echo esc_html(quantrieu_get_archive_news_no_results_title()); ?></h3>
                     <p class="text-muted-foreground mb-6">
                         <?php if (!empty($search_query)) : ?>
-                            Không có bài viết nào phù hợp với từ khóa "<?php echo esc_html($search_query); ?>".
+                            <?php echo sprintf(esc_html(quantrieu_get_archive_news_no_results_search()), esc_html($search_query)); ?>
                         <?php else : ?>
-                            Không có bài viết nào trong danh mục này.
+                            <?php echo esc_html(quantrieu_get_archive_news_no_results_category()); ?>
                         <?php endif; ?>
                     </p>
                     <a href="<?php echo esc_url(get_post_type_archive_link('tin_tuc')); ?>" 
                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-9 px-4 py-2 bg-[#FF9800] text-white hover:bg-[#FF9800]/90">
-                        Xem tất cả tin tức
+                        <?php echo esc_html(quantrieu_get_archive_news_no_results_button()); ?>
                     </a>
                 </div>
             <?php endif; ?>

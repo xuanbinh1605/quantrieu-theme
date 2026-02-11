@@ -78,32 +78,34 @@ $categories = get_terms(array(
         <!-- Page Title -->
         <div class="max-w-3xl">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance">
-                Dự Án <span class="bg-gradient-to-r from-[#FF9800] to-[#F44336] bg-clip-text text-transparent">Đã Thực Hiện</span>
+                <?php echo wp_kses_post(quantrieu_get_archive_projects_hero_heading()); ?>
             </h1>
             <p class="text-lg md:text-xl text-white/70 leading-relaxed">
-                Những dự án in ấn tiêu biểu mà In Quan Triều đã thực hiện cho các khách hàng. Mỗi dự án là một câu chuyện về sự tận tâm và chất lượng.
+                <?php echo esc_html(quantrieu_get_archive_projects_hero_description()); ?>
             </p>
         </div>
         
         <!-- Stats -->
+        <?php if (quantrieu_get_archive_projects_stats_show()) : ?>
         <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl">
             <div class="text-center">
-                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1">500+</div>
-                <div class="text-white/60 text-sm">Dự án hoàn thành</div>
+                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1"><?php echo esc_html(quantrieu_get_archive_projects_stat1_number()); ?></div>
+                <div class="text-white/60 text-sm"><?php echo esc_html(quantrieu_get_archive_projects_stat1_text()); ?></div>
             </div>
             <div class="text-center">
-                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1">200+</div>
-                <div class="text-white/60 text-sm">Khách hàng</div>
+                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1"><?php echo esc_html(quantrieu_get_archive_projects_stat2_number()); ?></div>
+                <div class="text-white/60 text-sm"><?php echo esc_html(quantrieu_get_archive_projects_stat2_text()); ?></div>
             </div>
             <div class="text-center">
-                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1">10+</div>
-                <div class="text-white/60 text-sm">Năm kinh nghiệm</div>
+                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1"><?php echo esc_html(quantrieu_get_archive_projects_stat3_number()); ?></div>
+                <div class="text-white/60 text-sm"><?php echo esc_html(quantrieu_get_archive_projects_stat3_text()); ?></div>
             </div>
             <div class="text-center">
-                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1">100%</div>
-                <div class="text-white/60 text-sm">Đúng tiến độ</div>
+                <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1"><?php echo esc_html(quantrieu_get_archive_projects_stat4_number()); ?></div>
+                <div class="text-white/60 text-sm"><?php echo esc_html(quantrieu_get_archive_projects_stat4_text()); ?></div>
             </div>
         </div>
+        <?php endif; ?>
     </div>
 </section>
 
@@ -115,7 +117,7 @@ $categories = get_terms(array(
             <a href="<?php echo esc_url(get_post_type_archive_link('du_an')); ?>" 
                data-slot="button" 
                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-9 px-4 py-2 has-[>svg]:px-3 <?php echo empty($current_category) ? 'bg-[#FF9800] hover:bg-[#FF9800]/90 text-white' : 'border bg-background shadow-xs hover:bg-accent dark:bg-input/30 dark:border-input dark:hover:bg-input/50 hover:border-[#FF9800] hover:text-[#FF9800]'; ?>">
-                Tất cả
+                <?php echo esc_html(quantrieu_get_archive_projects_filter_all_text()); ?>
             </a>
             
             <?php if (!is_wp_error($categories) && !empty($categories)) : ?>
@@ -131,9 +133,9 @@ $categories = get_terms(array(
         
         <!-- Results Count -->
         <p class="text-muted-foreground mb-8 text-center">
-            Hiển thị <?php echo $projects_query->post_count; ?> dự án
+            <?php echo sprintf(esc_html(quantrieu_get_archive_projects_results_text()), $projects_query->post_count); ?>
             <?php if ($projects_query->found_posts > $projects_query->post_count) : ?>
-                / <?php echo $projects_query->found_posts; ?> tổng
+                <?php echo sprintf(esc_html(quantrieu_get_archive_projects_total_results_text()), $projects_query->found_posts); ?>
             <?php endif; ?>
         </p>
         
@@ -288,11 +290,11 @@ $categories = get_terms(array(
                     <circle cx="11" cy="11" r="8"></circle>
                     <path d="m21 21-4.3-4.3"></path>
                 </svg>
-                <h3 class="text-xl font-semibold mb-2">Không tìm thấy dự án</h3>
-                <p class="text-muted-foreground mb-6">Không có dự án nào trong danh mục này.</p>
+                <h3 class="text-xl font-semibold mb-2"><?php echo esc_html(quantrieu_get_archive_projects_no_results_title()); ?></h3>
+                <p class="text-muted-foreground mb-6"><?php echo esc_html(quantrieu_get_archive_projects_no_results_text()); ?></p>
                 <a href="<?php echo esc_url(get_post_type_archive_link('du_an')); ?>" 
                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-9 px-4 py-2 bg-[#FF9800] text-white hover:bg-[#FF9800]/90">
-                    Xem tất cả dự án
+                    <?php echo esc_html(quantrieu_get_archive_projects_no_results_button()); ?>
                 </a>
             </div>
         <?php endif; ?>

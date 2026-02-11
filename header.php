@@ -107,9 +107,9 @@
                     <?php echo esc_html($phone); ?>
                 </a>
                 <?php endif; ?>
-                <button data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] bg-primary hover:bg-primary/90 h-9 px-4 py-2 bg-gradient-to-r from-[#FF9800] to-[#F44336] hover:from-[#F57C00] hover:to-[#E53935] text-white shadow-lg">
+                <a href="<?php echo esc_url(home_url('/lien-he')); ?>" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] bg-primary hover:bg-primary/90 h-9 px-4 py-2 bg-gradient-to-r from-[#FF9800] to-[#F44336] hover:from-[#F57C00] hover:to-[#E53935] text-white shadow-lg">
                     Nhận báo giá
-                </button>
+                </a>
             </div>
 
             <!-- Mobile Menu Toggle -->
@@ -195,9 +195,9 @@
                         <?php echo esc_html($phone); ?>
                     </a>
                     <?php endif; ?>
-                    <button data-slot="button" class="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all bg-gradient-to-r from-[#FF9800] to-[#F44336] hover:from-[#F57C00] hover:to-[#E53935] text-white shadow-lg h-10 px-4">
+                    <a href="<?php echo esc_url(home_url('/lien-he')); ?>" data-slot="button" class="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all bg-gradient-to-r from-[#FF9800] to-[#F44336] hover:from-[#F57C00] hover:to-[#E53935] text-white shadow-lg h-10 px-4">
                         Nhận báo giá
-                    </button>
+                    </a>
                 </div>
             </nav>
         </div>

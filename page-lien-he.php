@@ -22,11 +22,11 @@ get_header();
                 <span class="text-white">Liên hệ</span>
             </nav>
             <div class="max-w-3xl">
-                <span class="inline-block px-4 py-1.5 bg-[#FF9800]/20 text-[#FF9800] text-sm font-medium rounded-full mb-4">LIÊN HỆ VỚI CHÚNG TÔI</span>
+                <span class="inline-block px-4 py-1.5 bg-[#FF9800]/20 text-[#FF9800] text-sm font-medium rounded-full mb-4"><?php echo esc_html(quantrieu_get_contact_hero_badge()); ?></span>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance">
-                    Hãy Kết Nối Với <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FF9800] to-[#F44336]">In Quan Triều</span>
+                    <?php echo wp_kses_post(quantrieu_get_contact_hero_heading()); ?>
                 </h1>
-                <p class="text-lg text-white/70">Liên hệ ngay với chúng tôi để được tư vấn miễn phí và nhận báo giá tốt nhất cho dự án in ấn của bạn.</p>
+                <p class="text-lg text-white/70"><?php echo esc_html(quantrieu_get_contact_hero_description()); ?></p>
             </div>
         </div>
     </section>
@@ -38,8 +38,8 @@ get_header();
                 <!-- Contact Form -->
                 <div class="lg:col-span-2">
                     <div class="bg-white rounded-2xl shadow-lg border border-border p-8">
-                        <h2 class="text-2xl font-bold text-foreground mb-2">Gửi Yêu Cầu Báo Giá</h2>
-                        <p class="text-muted-foreground mb-8">Điền thông tin bên dưới, chúng tôi sẽ liên hệ tư vấn trong vòng 30 phút.</p>
+                        <h2 class="text-2xl font-bold text-foreground mb-2"><?php echo esc_html(quantrieu_get_contact_form_title()); ?></h2>
+                        <p class="text-muted-foreground mb-8"><?php echo esc_html(quantrieu_get_contact_form_description()); ?></p>
                         <form id="contact-form" class="space-y-6">
                             <?php wp_nonce_field('contact_form_nonce', 'contact_nonce'); ?>
                             
@@ -96,7 +96,7 @@ get_header();
                                     <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path>
                                     <path d="m21.854 2.147-10.94 10.939"></path>
                                 </svg>
-                                Gửi Yêu Cầu Báo Giá
+                                <?php echo esc_html(quantrieu_get_contact_form_button_text()); ?>
                             </button>
                         </form>
                     </div>
@@ -107,7 +107,7 @@ get_header();
                     <div class="space-y-6">
                         <!-- Contact Info Card -->
                         <div class="bg-white rounded-2xl shadow-lg border border-border p-6">
-                            <h3 class="text-xl font-bold text-foreground mb-6">Thông Tin Liên Hệ</h3>
+                            <h3 class="text-xl font-bold text-foreground mb-6"><?php echo esc_html(quantrieu_get_contact_info_title()); ?></h3>
                             <div class="space-y-5">
                                 <div class="flex gap-4">
                                     <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF9800]/10 to-[#F44336]/10 flex items-center justify-center flex-shrink-0">
@@ -118,7 +118,7 @@ get_header();
                                     </div>
                                     <div>
                                         <p class="text-sm text-muted-foreground mb-0.5">Địa chỉ</p>
-                                        <a class="text-foreground font-medium hover:text-[#FF9800] transition-colors" href="https://maps.google.com">123 Đường ABC, Quận XYZ, TP. Hồ Chí Minh</a>
+                                        <a class="text-foreground font-medium hover:text-[#FF9800] transition-colors" href="<?php echo esc_url(quantrieu_get_contact_info_address_link()); ?>"><?php echo esc_html(quantrieu_get_contact_info_address()); ?></a>
                                     </div>
                                 </div>
                                 <div class="flex gap-4">
@@ -129,7 +129,7 @@ get_header();
                                     </div>
                                     <div>
                                         <p class="text-sm text-muted-foreground mb-0.5">Hotline</p>
-                                        <a class="text-foreground font-medium hover:text-[#FF9800] transition-colors" href="tel:0909123456">0909 123 456</a>
+                                        <a class="text-foreground font-medium hover:text-[#FF9800] transition-colors" href="tel:<?php echo esc_attr(quantrieu_get_contact_info_phone_link()); ?>"><?php echo esc_html(quantrieu_get_contact_info_phone()); ?></a>
                                     </div>
                                 </div>
                                 <div class="flex gap-4">
@@ -141,7 +141,7 @@ get_header();
                                     </div>
                                     <div>
                                         <p class="text-sm text-muted-foreground mb-0.5">Email</p>
-                                        <a class="text-foreground font-medium hover:text-[#FF9800] transition-colors" href="mailto:info@inquantrieu.com">info@inquantrieu.com</a>
+                                        <a class="text-foreground font-medium hover:text-[#FF9800] transition-colors" href="mailto:<?php echo esc_attr(quantrieu_get_contact_info_email()); ?>"><?php echo esc_html(quantrieu_get_contact_info_email()); ?></a>
                                     </div>
                                 </div>
                                 <div class="flex gap-4">
@@ -153,7 +153,7 @@ get_header();
                                     </div>
                                     <div>
                                         <p class="text-sm text-muted-foreground mb-0.5">Giờ làm việc</p>
-                                        <p class="text-foreground font-medium">08:00 - 18:00 (Thứ 2 - Thứ 7)</p>
+                                        <p class="text-foreground font-medium"><?php echo esc_html(quantrieu_get_contact_info_working_hours()); ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -168,28 +168,28 @@ get_header();
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-bold text-lg">Chat Zalo</h3>
-                                    <p class="text-white/80 text-sm">Phản hồi nhanh trong 5 phút</p>
+                                    <h3 class="font-bold text-lg"><?php echo esc_html(quantrieu_get_contact_zalo_title()); ?></h3>
+                                    <p class="text-white/80 text-sm"><?php echo esc_html(quantrieu_get_contact_zalo_description()); ?></p>
                                 </div>
                             </div>
-                            <a target="_blank" class="block w-full py-3 bg-white text-[#0068FF] font-semibold rounded-xl text-center hover:bg-white/90 transition-colors" href="https://zalo.me/0909123456">Nhắn tin ngay</a>
+                            <a target="_blank" class="block w-full py-3 bg-white text-[#0068FF] font-semibold rounded-xl text-center hover:bg-white/90 transition-colors" href="<?php echo esc_url(quantrieu_get_contact_zalo_link()); ?>"><?php echo esc_html(quantrieu_get_contact_zalo_button_text()); ?></a>
                         </div>
 
                         <!-- Social Media -->
                         <div class="bg-white rounded-2xl shadow-lg border border-border p-6">
-                            <h3 class="text-lg font-bold text-foreground mb-4">Kết nối với chúng tôi</h3>
+                            <h3 class="text-lg font-bold text-foreground mb-4"><?php echo esc_html(quantrieu_get_contact_social_title()); ?></h3>
                             <div class="flex gap-3">
-                                <a class="w-12 h-12 rounded-xl bg-[#0068FF] flex items-center justify-center text-white hover:opacity-80 transition-opacity" aria-label="Zalo" href="#">
+                                <a class="w-12 h-12 rounded-xl bg-[#0068FF] flex items-center justify-center text-white hover:opacity-80 transition-opacity" aria-label="Zalo" href="<?php echo esc_url(quantrieu_get_contact_zalo_link()); ?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle w-5 h-5">
                                         <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
                                     </svg>
                                 </a>
-                                <a class="w-12 h-12 rounded-xl bg-[#1877F2] flex items-center justify-center text-white hover:opacity-80 transition-opacity" aria-label="Facebook" href="#">
+                                <a class="w-12 h-12 rounded-xl bg-[#1877F2] flex items-center justify-center text-white hover:opacity-80 transition-opacity" aria-label="Facebook" href="<?php echo esc_url(quantrieu_get_contact_social_facebook()); ?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook w-5 h-5">
                                         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                                     </svg>
                                 </a>
-                                <a class="w-12 h-12 rounded-xl bg-[#FF0000] flex items-center justify-center text-white hover:opacity-80 transition-opacity" aria-label="Youtube" href="#">
+                                <a class="w-12 h-12 rounded-xl bg-[#FF0000] flex items-center justify-center text-white hover:opacity-80 transition-opacity" aria-label="Youtube" href="<?php echo esc_url(quantrieu_get_contact_social_youtube()); ?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube w-5 h-5">
                                         <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
                                         <path d="m10 15 5-3-5-3z"></path>
@@ -200,8 +200,8 @@ get_header();
 
                         <!-- Notice -->
                         <div class="bg-[#FFF8E1] rounded-2xl p-6 border border-[#FFE082]">
-                            <h4 class="font-semibold text-[#F57C00] mb-2">Lưu ý</h4>
-                            <p class="text-sm text-[#795548]">Để được phục vụ tốt nhất, quý khách vui lòng liên hệ trong giờ làm việc hoặc để lại tin nhắn qua form, chúng tôi sẽ phản hồi sớm nhất.</p>
+                            <h4 class="font-semibold text-[#F57C00] mb-2"><?php echo esc_html(quantrieu_get_contact_notice_title()); ?></h4>
+                            <p class="text-sm text-[#795548]"><?php echo esc_html(quantrieu_get_contact_notice_content()); ?></p>
                         </div>
                     </div>
                 </div>
@@ -213,11 +213,11 @@ get_header();
     <section class="pb-16 lg:pb-24" data-animate="fade-up">
         <div class="container mx-auto px-4">
             <div class="text-center mb-10">
-                <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-3">Vị Trí Cửa Hàng</h2>
-                <p class="text-muted-foreground">Ghé thăm chúng tôi để được tư vấn trực tiếp</p>
+                <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-3"><?php echo esc_html(quantrieu_get_contact_map_title()); ?></h2>
+                <p class="text-muted-foreground"><?php echo esc_html(quantrieu_get_contact_map_description()); ?></p>
             </div>
             <div class="rounded-2xl overflow-hidden shadow-lg border border-border">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4694!2d106.6297!3d10.8231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ5JzIzLjIiTiAxMDbCsDM3JzQ2LjkiRQ!5e0!3m2!1svi!2s!4v1629876543210!5m2!1svi!2s" width="100%" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bản đồ In Quan Triều" style="border: 0px;"></iframe>
+                <iframe src="<?php echo esc_url(quantrieu_get_contact_map_embed_url()); ?>" width="100%" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="<?php echo esc_attr(quantrieu_get_contact_map_title_attr()); ?>" style="border: 0px;"></iframe>
             </div>
         </div>
     </section>

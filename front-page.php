@@ -202,7 +202,7 @@ get_header();
                                     <path d="M20 6 9 17l-5-5"></path>
                                 </svg>
                             </div>
-                            <span class="text-foreground"><?php echo esc_html($feature); ?></span>
+                            <span class="text-foreground" style="text-align: left;"><?php echo esc_html($feature); ?></span>
                         </li>
                         <?php endforeach; ?>
                     </ul>

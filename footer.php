@@ -35,61 +35,7 @@
                 </div>
             </div>
 
-            <!-- Quick Links -->
-            <div>
-                <h3 class="text-lg font-semibold mb-6 text-[#FF9800]">Liên kết nhanh</h3>
-                <?php
-                wp_nav_menu(array(
-                    'theme_location' => 'footer-quick-links',
-                    'menu_class' => 'space-y-3',
-                    'container' => 'nav',
-                    'fallback_cb' => function() {
-                        ?>
-                        <ul class="space-y-3">
-                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="<?php echo esc_url(home_url('/')); ?>">Trang chủ</a></li>
-                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">Giới thiệu</a></li>
-                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="<?php echo esc_url(get_post_type_archive_link('dich_vu')); ?>">Dịch vụ</a></li>
-                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="<?php echo esc_url(get_post_type_archive_link('du_an')); ?>">Dự án</a></li>
-                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="<?php echo esc_url(get_post_type_archive_link('tin_tuc')); ?>">Tin tức</a></li>
-                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">Liên hệ</a></li>
-                        </ul>
-                        <?php
-                    },
-                    'items_wrap' => '<ul class="%2$s">%3$s</ul>',
-                    'link_before' => '<span class="text-background/70 hover:text-[#FF9800] transition-colors">',
-                    'link_after' => '</span>',
-                ));
-                ?>
-            </div>
-
-            <!-- Services -->
-            <div>
-                <h3 class="text-lg font-semibold mb-6 text-[#FF9800]">Dịch vụ</h3>
-                <?php
-                wp_nav_menu(array(
-                    'theme_location' => 'footer-services',
-                    'menu_class' => 'space-y-3',
-                    'container' => 'nav',
-                    'fallback_cb' => function() {
-                        ?>
-                        <ul class="space-y-3">
-                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">In Standee</a></li>
-                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">In UV</a></li>
-                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">In PP</a></li>
-                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">In Bạt Hiflex</a></li>
-                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">In Canvas</a></li>
-                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">In Decal</a></li>
-                        </ul>
-                        <?php
-                    },
-                    'items_wrap' => '<ul class="%2$s">%3$s</ul>',
-                    'link_before' => '<span class="text-background/70 hover:text-[#FF9800] transition-colors">',
-                    'link_after' => '</span>',
-                ));
-                ?>
-            </div>
-
-            <!-- Contact Info -->
+             <!-- Contact Info -->
             <div>
                 <h3 class="text-lg font-semibold mb-6 text-[#FF9800]">Thông tin liên hệ</h3>
                 <ul class="space-y-4">
@@ -134,6 +80,63 @@
                     <?php endif; ?>
                 </ul>
             </div>
+
+            <!-- Services -->
+            <div>
+                <h3 class="text-lg font-semibold mb-6 text-[#FF9800]">Dịch vụ</h3>
+                <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'footer-services',
+                    'menu_class' => 'space-y-3',
+                    'container' => 'nav',
+                    'fallback_cb' => function() {
+                        ?>
+                        <ul class="space-y-3">
+                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">In Standee</a></li>
+                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">In UV</a></li>
+                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">In PP</a></li>
+                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">In Bạt Hiflex</a></li>
+                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">In Canvas</a></li>
+                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">In Decal</a></li>
+                        </ul>
+                        <?php
+                    },
+                    'items_wrap' => '<ul class="%2$s">%3$s</ul>',
+                    'link_before' => '<span class="text-background/70 hover:text-[#FF9800] transition-colors">',
+                    'link_after' => '</span>',
+                ));
+                ?>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-lg font-semibold mb-6 text-[#FF9800]">Liên kết nhanh</h3>
+                <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'footer-quick-links',
+                    'menu_class' => 'space-y-3',
+                    'container' => 'nav',
+                    'fallback_cb' => function() {
+                        ?>
+                        <ul class="space-y-3">
+                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="<?php echo esc_url(home_url('/')); ?>">Trang chủ</a></li>
+                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">Giới thiệu</a></li>
+                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="<?php echo esc_url(get_post_type_archive_link('dich_vu')); ?>">Dịch vụ</a></li>
+                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="<?php echo esc_url(get_post_type_archive_link('du_an')); ?>">Dự án</a></li>
+                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="<?php echo esc_url(get_post_type_archive_link('tin_tuc')); ?>">Tin tức</a></li>
+                            <li><a class="text-background/70 hover:text-[#FF9800] transition-colors" href="#">Liên hệ</a></li>
+                        </ul>
+                        <?php
+                    },
+                    'items_wrap' => '<ul class="%2$s">%3$s</ul>',
+                    'link_before' => '<span class="text-background/70 hover:text-[#FF9800] transition-colors">',
+                    'link_after' => '</span>',
+                ));
+                ?>
+            </div>
+
+            
+           
         </div>
     </div>
 

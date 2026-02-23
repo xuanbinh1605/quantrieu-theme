@@ -67,9 +67,6 @@ $categories = get_terms(array(
         
         <!-- Page Title -->
         <div class="max-w-3xl">
-            <span class="inline-block px-4 py-1.5 bg-[#FF9800]/20 text-[#FF9800] text-sm font-medium rounded-full mb-4">
-                <?php echo esc_html(quantrieu_get_archive_news_hero_badge()); ?>
-            </span>
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 <?php echo wp_kses_post(quantrieu_get_archive_news_hero_heading()); ?>
             </h1>

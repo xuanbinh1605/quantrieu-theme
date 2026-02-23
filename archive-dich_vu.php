@@ -79,19 +79,19 @@ $services_query = new WP_Query($args);
         <!-- Stats -->
         <?php if (quantrieu_get_archive_services_stats_show()) : ?>
         <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl">
-            <div class="text-center">
+            <div>
                 <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1"><?php echo esc_html(quantrieu_get_archive_services_stat1_number()); ?></div>
                 <div class="text-white/60 text-sm"><?php echo esc_html(quantrieu_get_archive_services_stat1_text()); ?></div>
             </div>
-            <div class="text-center">
+            <div>
                 <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1"><?php echo esc_html(quantrieu_get_archive_services_stat2_number()); ?></div>
                 <div class="text-white/60 text-sm"><?php echo esc_html(quantrieu_get_archive_services_stat2_text()); ?></div>
             </div>
-            <div class="text-center">
+            <div>
                 <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1"><?php echo esc_html(quantrieu_get_archive_services_stat3_number()); ?></div>
                 <div class="text-white/60 text-sm"><?php echo esc_html(quantrieu_get_archive_services_stat3_text()); ?></div>
             </div>
-            <div class="text-center">
+            <div>
                 <div class="text-3xl md:text-4xl font-bold text-[#FF9800] mb-1"><?php echo esc_html(quantrieu_get_archive_services_stat4_number()); ?></div>
                 <div class="text-white/60 text-sm"><?php echo esc_html(quantrieu_get_archive_services_stat4_text()); ?></div>
             </div>

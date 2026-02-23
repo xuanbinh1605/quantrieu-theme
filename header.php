@@ -10,7 +10,7 @@
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
     <div class="container mx-auto px-4">
-        <div class="flex items-center justify-between h-20">
+        <div class="flex items-center justify-between h-24">
             <!-- Logo -->
             <a class="flex items-center gap-2" href="<?php echo esc_url(home_url('/')); ?>">
                 <?php 

@@ -77,11 +77,11 @@ get_header();
                         </li>
                         <?php endforeach; ?>
                     </ul>
-                    <div class="flex flex-wrap gap-8 pt-6 border-t border-border">
+                    <div class="flex gap-4 md:gap-8 pt-6 border-t border-border">
                         <?php $stats = quantrieu_get_about_main_stats(); foreach ($stats as $stat) : ?>
-                        <div>
-                            <div class="text-3xl font-bold <?php echo esc_attr($stat['color']); ?>"><?php echo esc_html($stat['number']); ?></div>
-                            <div class="text-muted-foreground text-sm"><?php echo esc_html($stat['text']); ?></div>
+                        <div class="flex-shrink-0">
+                            <div class="text-2xl md:text-3xl font-bold <?php echo esc_attr($stat['color']); ?>"><?php echo esc_html($stat['number']); ?></div>
+                            <div class="text-muted-foreground text-xs md:text-sm"><?php echo esc_html($stat['text']); ?></div>
                         </div>
                         <?php endforeach; ?>
                     </div>

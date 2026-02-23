@@ -251,7 +251,7 @@ get_header();
     </section>
 
     <!-- Process Section -->
-    <section class="py-24 bg-foreground text-background overflow-hidden" data-animate="fade-up">
+    <section class="py-24 bg-gradient-to-br from-foreground via-foreground/95 to-foreground text-background overflow-hidden" data-animate="fade-up">
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="text-center mb-12 md:mb-16 px-2">

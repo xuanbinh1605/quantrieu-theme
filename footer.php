@@ -156,6 +156,14 @@
     </div>
 </footer>
 
+<!-- Back to Top Button -->
+<button id="back-to-top" class="fixed w-12 h-12 bg-[#FF9800] text-white rounded-full shadow-lg opacity-0 invisible flex items-center justify-center" style="z-index: 9999; bottom: 80px; right: 50px;" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up">
+        <path d="m5 12 7-7 7 7"></path>
+        <path d="M12 19V5"></path>
+    </svg>
+</button>
+
 <?php wp_footer(); ?>
 </body>
 </html>

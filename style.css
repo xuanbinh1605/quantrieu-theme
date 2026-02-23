@@ -5704,3 +5704,24 @@ body {
         transform: none !important;
     }
 }
+
+/* Back to Top Button Styles */
+#back-to-top {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#back-to-top:hover {
+    background-color: #F57C00;
+    transform: scale(1.1);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+#back-to-top:active {
+    transform: scale(0.95);
+}
+
+#back-to-top.visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+}

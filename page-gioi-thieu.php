@@ -142,7 +142,14 @@ get_header();
                     <h2 class="text-3xl md:text-4xl font-bold mb-6 text-balance"><?php echo esc_html(quantrieu_get_about_why_title()); ?></h2>
                     <p class="text-muted-foreground leading-relaxed mb-8"><?php echo esc_html(quantrieu_get_about_why_description()); ?></p>
                     <div class="grid sm:grid-cols-2 gap-6">
-                        <?php $why_features = quantrieu_get_about_why_features(); foreach ($why_features as $feature) : ?>
+                        <?php 
+                        $why_features = quantrieu_get_about_why_features(); 
+                        // Check if the first feature has actual content
+                        $has_content = !empty($why_features) && !empty($why_features[0]['title']);
+                        
+                        if ($has_content) :
+                            foreach ($why_features as $feature) : 
+                        ?>
                         <div class="flex gap-4">
                             <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 flex items-center justify-center flex-shrink-0">
                                 <?php echo $feature['icon']; ?>
@@ -152,7 +159,86 @@ get_header();
                                 <p class="text-sm text-muted-foreground"><?php echo esc_html($feature['description']); ?></p>
                             </div>
                         </div>
-                        <?php endforeach; ?>
+                        <?php 
+                            endforeach; 
+                        else : 
+                        ?>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap w-6 h-6 text-[#FF9800]">
+                                    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Công nghệ hiện đại</h3>
+                                <p class="text-sm text-muted-foreground">Trang bị máy in UV, Eco-solvent thế hệ mới nhất từ Nhật Bản, Hàn Quốc</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award w-6 h-6 text-[#FF9800]">
+                                    <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path>
+                                    <circle cx="12" cy="8" r="6"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Chất lượng đảm bảo</h3>
+                                <p class="text-sm text-muted-foreground">Sản phẩm sắc nét, bền màu theo thời gian, đạt tiêu chuẩn quốc tế</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-6 h-6 text-[#FF9800]">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Đội ngũ chuyên nghiệp</h3>
+                                <p class="text-sm text-muted-foreground">Nhân viên tận tâm, nhiều năm kinh nghiệm trong ngành in ấn</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock w-6 h-6 text-[#FF9800]">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Đúng tiến độ</h3>
+                                <p class="text-sm text-muted-foreground">Cam kết giao hàng đúng hẹn, đáp ứng mọi yêu cầu gấp của khách hàng</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck w-6 h-6 text-[#FF9800]">
+                                    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
+                                    <path d="M15 18H9"></path>
+                                    <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path>
+                                    <circle cx="17" cy="18" r="2"></circle>
+                                    <circle cx="7" cy="18" r="2"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Giao hàng toàn quốc</h3>
+                                <p class="text-sm text-muted-foreground">Miễn phí giao hàng nội thành HCM, ship COD toàn quốc</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-headphones w-6 h-6 text-[#FF9800]">
+                                    <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Hỗ trợ 24/7</h3>
+                                <p class="text-sm text-muted-foreground">Đội ngũ tư vấn sẵn sàng hỗ trợ bạn mọi lúc, mọi nơi</p>
+                            </div>
+                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="relative">

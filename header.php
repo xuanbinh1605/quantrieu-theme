@@ -124,7 +124,7 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="lg:hidden hidden border-t border-border bg-white">
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-border bg-white" style ="height: 100vh;">
         <div class="container mx-auto px-4">
             <nav class="py-4">
                 <?php

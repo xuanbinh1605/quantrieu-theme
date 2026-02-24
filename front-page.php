@@ -264,28 +264,28 @@ get_header();
             </div>
 
             <!-- Process Steps -->
-            <div class="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-8 lg:gap-0 mb-12">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-12">
                 <!-- Step 1 -->
-                <div class="relative group flex-1 flex flex-col items-center w-full lg:w-auto">
-                    <div class="relative z-10 text-center px-4 w-full max-w-xs mx-auto">
-                        <div class="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 mb-6 group-hover:from-[#FF9800]/30 group-hover:to-[#F44336]/30 transition-colors border border-[#FF9800]/30">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square w-10 h-10 text-[#FF9800]">
+                <div class="relative group flex flex-col items-center">
+                    <div class="relative z-10 text-center px-2 w-full">
+                        <div class="inline-flex items-center justify-center w-16 h-16 lg:w-24 lg:h-24 rounded-2xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 mb-4 lg:mb-6 group-hover:from-[#FF9800]/30 group-hover:to-[#F44336]/30 transition-colors border border-[#FF9800]/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square w-8 h-8 lg:w-10 lg:h-10 text-[#FF9800]">
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                             </svg>
                         </div>
-                        <div class="text-sm font-medium text-[#FF9800] mb-2">01</div>
-                        <h3 class="text-lg font-semibold mb-3">Tiếp nhận & Tư vấn</h3>
-                        <p class="text-background/60 text-sm max-w-[200px] mx-auto">
+                        <div class="text-xs lg:text-sm font-medium text-[#FF9800] mb-2">01</div>
+                        <h3 class="text-sm lg:text-lg font-semibold mb-2 lg:mb-3">Tiếp nhận & Tư vấn</h3>
+                        <p class="text-background/60 text-xs lg:text-sm leading-relaxed mx-auto">
                             Lắng nghe nhu cầu và tư vấn giải pháp in ấn phù hợp nhất cho khách hàng
                         </p>
                     </div>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="relative group flex-1 flex flex-col items-center w-full lg:w-auto">
-                    <div class="relative z-10 text-center px-4 w-full max-w-xs mx-auto">
-                        <div class="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 mb-6 group-hover:from-[#FF9800]/30 group-hover:to-[#F44336]/30 transition-colors border border-[#FF9800]/30">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette w-10 h-10 text-[#FF9800]">
+                <div class="relative group flex flex-col items-center">
+                    <div class="relative z-10 text-center px-2 w-full">
+                        <div class="inline-flex items-center justify-center w-16 h-16 lg:w-24 lg:h-24 rounded-2xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 mb-4 lg:mb-6 group-hover:from-[#FF9800]/30 group-hover:to-[#F44336]/30 transition-colors border border-[#FF9800]/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette w-8 h-8 lg:w-10 lg:h-10 text-[#FF9800]">
                                 <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
                                 <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
                                 <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
@@ -293,46 +293,46 @@ get_header();
                                 <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
                             </svg>
                         </div>
-                        <div class="text-sm font-medium text-[#FF9800] mb-2">02</div>
-                        <h3 class="text-lg font-semibold mb-3">Thiết kế & Duyệt mẫu</h3>
-                        <p class="text-background/60 text-sm max-w-[200px] mx-auto">
+                        <div class="text-xs lg:text-sm font-medium text-[#FF9800] mb-2">02</div>
+                        <h3 class="text-sm lg:text-lg font-semibold mb-2 lg:mb-3">Thiết kế & Duyệt mẫu</h3>
+                        <p class="text-background/60 text-xs lg:text-sm leading-relaxed mx-auto">
                             Thiết kế theo yêu cầu hoặc hỗ trợ hoàn thiện file in cho khách hàng
                         </p>
                     </div>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="relative group flex-1 flex flex-col items-center w-full lg:w-auto">
-                    <div class="relative z-10 text-center px-4 w-full max-w-xs mx-auto">
-                        <div class="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 mb-6 group-hover:from-[#FF9800]/30 group-hover:to-[#F44336]/30 transition-colors border border-[#FF9800]/30">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer w-10 h-10 text-[#FF9800]">
-                                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <div class="relative group flex flex-col items-center">
+                    <div class="relative z-10 text-center px-2 w-full">
+                        <div class="inline-flex items-center justify-center w-16 h-16 lg:w-24 lg:h-24 rounded-2xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 mb-4 lg:mb-6 group-hover:from-[#FF9800]/30 group-hover:to-[#F44336]/30 transition-colors border border-[#FF9800]/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer w-8 h-8 lg:w-10 lg:h-10 text-[#FF9800]">
+                                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 0 0 1-2 2h-2"></path>
                                 <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"></path>
                                 <rect x="6" y="14" width="12" height="8" rx="1"></rect>
                             </svg>
                         </div>
-                        <div class="text-sm font-medium text-[#FF9800] mb-2">03</div>
-                        <h3 class="text-lg font-semibold mb-3">In ấn & Gia công</h3>
-                        <p class="text-background/60 text-sm max-w-[200px] mx-auto">
+                        <div class="text-xs lg:text-sm font-medium text-[#FF9800] mb-2">03</div>
+                        <h3 class="text-sm lg:text-lg font-semibold mb-2 lg:mb-3">In ấn & Gia công</h3>
+                        <p class="text-background/60 text-xs lg:text-sm leading-relaxed mx-auto">
                             Sản xuất với công nghệ hiện đại, kiểm soát chất lượng nghiêm ngặt
                         </p>
                     </div>
                 </div>
 
                 <!-- Step 4 -->
-                <div class="relative group flex-1 flex flex-col items-center w-full lg:w-auto">
-                    <div class="relative z-10 text-center px-4 w-full max-w-xs mx-auto">
-                        <div class="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 mb-6 group-hover:from-[#FF9800]/30 group-hover:to-[#F44336]/30 transition-colors border border-[#FF9800]/30">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package w-10 h-10 text-[#FF9800]">
+                <div class="relative group flex flex-col items-center">
+                    <div class="relative z-10 text-center px-2 w-full">
+                        <div class="inline-flex items-center justify-center w-16 h-16 lg:w-24 lg:h-24 rounded-2xl bg-gradient-to-br from-[#FF9800]/20 to-[#F44336]/20 mb-4 lg:mb-6 group-hover:from-[#FF9800]/30 group-hover:to-[#F44336]/30 transition-colors border border-[#FF9800]/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package w-8 h-8 lg:w-10 lg:h-10 text-[#FF9800]">
                                 <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"></path>
                                 <path d="M12 22V12"></path>
                                 <path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"></path>
                                 <path d="m7.5 4.27 9 5.15"></path>
                             </svg>
                         </div>
-                        <div class="text-sm font-medium text-[#FF9800] mb-2">04</div>
-                        <h3 class="text-lg font-semibold mb-3">Giao hàng & Nghiệm thu</h3>
-                        <p class="text-background/60 text-sm max-w-[200px] mx-auto">
+                        <div class="text-xs lg:text-sm font-medium text-[#FF9800] mb-2">04</div>
+                        <h3 class="text-sm lg:text-lg font-semibold mb-2 lg:mb-3">Giao hàng & Nghiệm thu</h3>
+                        <p class="text-background/60 text-xs lg:text-sm leading-relaxed mx-auto">
                             Đóng gói cẩn thận và giao hàng tận nơi đúng hẹn
                         </p>
                     </div>

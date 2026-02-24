@@ -153,7 +153,7 @@ get_header();
 
             <!-- View All Button -->
             <div class="text-center mt-12">
-                <a class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#FF9800] to-[#F44336] text-white font-medium rounded-full hover:shadow-lg hover:shadow-[#FF9800]/25 transition-all" href="<?php echo esc_url(get_post_type_archive_link('dich_vu')); ?>">
+                <a class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground hover:bg-primary/90 font-medium rounded-full transition-all" href="<?php echo esc_url(get_post_type_archive_link('dich_vu')); ?>">
                     <?php echo esc_html(quantrieu_get_services_view_all_text()); ?>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5">
                         <path d="M5 12h14"></path>
@@ -207,7 +207,7 @@ get_header();
                         <?php endforeach; ?>
                     </ul>
 
-                    <a href="<?php echo esc_url(quantrieu_get_about_cta_link()); ?>" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-9 px-4 py-2 has-[>svg]:px-3 bg-[#0090ff] hover:bg-[#0070cc] text-white">
+                    <a href="<?php echo esc_url(quantrieu_get_about_cta_link()); ?>" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-9 px-4 py-2 has-[>svg]:px-3 bg-primary text-primary-foreground hover:bg-primary/90">
                         <?php echo esc_html(quantrieu_get_about_cta_text()); ?>
                     </a>
                 </div>

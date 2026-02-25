@@ -83,7 +83,7 @@ $categories = get_terms(array(
         <!-- Search & Filter Section -->
         <div class="mb-8 flex flex-col lg:flex-row items-center justify-between gap-6">
             <!-- Search Box -->
-            <div class="w-full lg:w-auto lg:min-w-[320px]">
+            <div class="w-64">
                 <form method="get" action="<?php echo esc_url(get_post_type_archive_link('tin_tuc')); ?>" id="news-search-form">
                     <div class="relative">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground">

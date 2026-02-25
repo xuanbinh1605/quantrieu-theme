@@ -81,9 +81,9 @@ $categories = get_terms(array(
 <section class="py-20 bg-background" data-animate="fade-up">
     <div class="container mx-auto px-4">
         <!-- Search & Filter Section -->
-        <div class="mb-12 space-y-6">
+        <div class="mb-8 flex flex-col lg:flex-row items-center justify-between gap-6">
             <!-- Search Box -->
-            <div class="max-w-md mx-auto">
+            <div class="w-full lg:w-auto lg:min-w-[320px]">
                 <form method="get" action="<?php echo esc_url(get_post_type_archive_link('tin_tuc')); ?>" id="news-search-form">
                     <div class="relative">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground">
@@ -107,7 +107,7 @@ $categories = get_terms(array(
             </div>
             
             <!-- Category Filters -->
-            <div class="flex flex-wrap gap-3 justify-center">
+            <div class="flex flex-wrap gap-3 justify-center lg:justify-start flex-1">
                 <a href="<?php echo esc_url(get_post_type_archive_link('tin_tuc')); ?>" 
                    data-slot="button" 
                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-9 px-4 py-2 has-[>svg]:px-3 <?php echo empty($current_category) && empty($search_query) ? 'bg-[#FF9800] hover:bg-[#FF9800]/90 text-white' : 'border bg-background shadow-xs hover:bg-accent dark:bg-input/30 dark:border-input dark:hover:bg-input/50 hover:border-[#FF9800] hover:text-[#FF9800]'; ?>">
@@ -130,15 +130,15 @@ $categories = get_terms(array(
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>
+            
+            <!-- Results Count -->
+            <div class="text-muted-foreground text-sm whitespace-nowrap">
+                <?php echo sprintf(esc_html(quantrieu_get_archive_news_results_text()), $news_query->post_count); ?>
+                <?php if ($news_query->found_posts > $news_query->post_count) : ?>
+                    <?php echo sprintf(esc_html(quantrieu_get_archive_news_total_results_text()), $news_query->found_posts); ?>
+                <?php endif; ?>
+            </div>
         </div>
-        
-        <!-- Results Count -->
-        <p class="text-muted-foreground mb-8 text-center">
-            <?php echo sprintf(esc_html(quantrieu_get_archive_news_results_text()), $news_query->post_count); ?>
-            <?php if ($news_query->found_posts > $news_query->post_count) : ?>
-                <?php echo sprintf(esc_html(quantrieu_get_archive_news_total_results_text()), $news_query->found_posts); ?>
-            <?php endif; ?>
-        </p>
         
         <!-- News Grid -->
         <div id="news-grid-container">

@@ -77,7 +77,7 @@ get_header();
     </section>
 
     <!-- Services Section -->
-    <section class="py-24 bg-muted/50" data-animate="fade-up">
+    <section class="py-12 bg-muted/50" data-animate="fade-up">
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="text-center mb-12 md:mb-16 px-2">
@@ -165,7 +165,7 @@ get_header();
     </section>
 
     <!-- About Us Section -->
-    <section class="py-24" data-animate="fade-up">
+    <section class="py-12" data-animate="fade-up">
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <!-- Left Image -->
@@ -251,7 +251,7 @@ get_header();
     </section>
 
     <!-- Process Section -->
-    <section class="py-24 bg-gradient-to-br from-foreground via-foreground/95 to-foreground text-background overflow-hidden" data-animate="fade-up">
+    <section class="py-12 bg-gradient-to-br from-foreground via-foreground/95 to-foreground text-background overflow-hidden" data-animate="fade-up">
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="text-center mb-12 md:mb-16 px-2">
@@ -353,7 +353,7 @@ get_header();
     </section>
 
     <!-- Clients Section -->
-    <section class="py-24 bg-muted/30" data-animate="fade-up">
+    <section class="py-12 bg-muted/30" data-animate="fade-up">
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="text-center mb-12 md:mb-16 px-2">
@@ -412,7 +412,7 @@ get_header();
     </section>
 
     <!-- News Section -->
-    <section class="py-24" data-animate="fade-up">
+    <section class="py-12" data-animate="fade-up">
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-12 px-2">

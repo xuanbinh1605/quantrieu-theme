@@ -155,8 +155,8 @@ get_header();
                                 <?php echo $feature['icon']; ?>
                             </div>
                             <div>
-                                <h3 class="font-semibold mb-1"><?php echo esc_html($feature['title']); ?></h3>
-                                <p class="text-sm text-muted-foreground"><?php echo esc_html($feature['description']); ?></p>
+                                <h3 class="text-sm lg:text-lg font-semibold mb-2 lg:mb-3"><?php echo esc_html($feature['title']); ?></h3>
+                                <p class="text-xs lg:text-sm text-muted-foreground leading-relaxed"><?php echo esc_html($feature['description']); ?></p>
                             </div>
                         </div>
                         <?php 
@@ -170,8 +170,8 @@ get_header();
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="font-semibold mb-1">Công nghệ hiện đại</h3>
-                                <p class="text-sm text-muted-foreground">Trang bị máy in UV, Eco-solvent thế hệ mới nhất từ Nhật Bản, Hàn Quốc</p>
+                                <h3 class="text-sm lg:text-lg font-semibold mb-2 lg:mb-3">Công nghệ hiện đại</h3>
+                                <p class="text-xs lg:text-sm text-muted-foreground leading-relaxed">Trang bị máy in UV, Eco-solvent thế hệ mới nhất từ Nhật Bản, Hàn Quốc</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
@@ -182,8 +182,8 @@ get_header();
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="font-semibold mb-1">Chất lượng đảm bảo</h3>
-                                <p class="text-sm text-muted-foreground">Sản phẩm sắc nét, bền màu theo thời gian, đạt tiêu chuẩn quốc tế</p>
+                                <h3 class="text-sm lg:text-lg font-semibold mb-2 lg:mb-3">Chất lượng đảm bảo</h3>
+                                <p class="text-xs lg:text-sm text-muted-foreground leading-relaxed">Sản phẩm sắc nét, bền màu theo thời gian, đạt tiêu chuẩn quốc tế</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
@@ -196,8 +196,8 @@ get_header();
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="font-semibold mb-1">Đội ngũ chuyên nghiệp</h3>
-                                <p class="text-sm text-muted-foreground">Nhân viên tận tâm, nhiều năm kinh nghiệm trong ngành in ấn</p>
+                                <h3 class="text-sm lg:text-lg font-semibold mb-2 lg:mb-3">Đội ngũ chuyên nghiệp</h3>
+                                <p class="text-xs lg:text-sm text-muted-foreground leading-relaxed">Nhân viên tận tâm, nhiều năm kinh nghiệm trong ngành in ấn</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
@@ -208,8 +208,8 @@ get_header();
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="font-semibold mb-1">Đúng tiến độ</h3>
-                                <p class="text-sm text-muted-foreground">Cam kết giao hàng đúng hẹn, đáp ứng mọi yêu cầu gấp của khách hàng</p>
+                                <h3 class="text-sm lg:text-lg font-semibold mb-2 lg:mb-3">Đúng tiến độ</h3>
+                                <p class="text-xs lg:text-sm text-muted-foreground leading-relaxed">Cam kết giao hàng đúng hẹn, đáp ứng mọi yêu cầu gấp của khách hàng</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
@@ -223,8 +223,8 @@ get_header();
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="font-semibold mb-1">Giao hàng toàn quốc</h3>
-                                <p class="text-sm text-muted-foreground">Miễn phí giao hàng nội thành HCM, ship COD toàn quốc</p>
+                                <h3 class="text-sm lg:text-lg font-semibold mb-2 lg:mb-3">Giao hàng toàn quốc</h3>
+                                <p class="text-xs lg:text-sm text-muted-foreground leading-relaxed">Miễn phí giao hàng nội thành HCM, ship COD toàn quốc</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
@@ -234,8 +234,8 @@ get_header();
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="font-semibold mb-1">Hỗ trợ 24/7</h3>
-                                <p class="text-sm text-muted-foreground">Đội ngũ tư vấn sẵn sàng hỗ trợ bạn mọi lúc, mọi nơi</p>
+                                <h3 class="text-sm lg:text-lg font-semibold mb-2 lg:mb-3">Hỗ trợ 24/7</h3>
+                                <p class="text-xs lg:text-sm text-muted-foreground leading-relaxed">Đội ngũ tư vấn sẵn sàng hỗ trợ bạn mọi lúc, mọi nơi</p>
                             </div>
                         </div>
                         <?php endif; ?>

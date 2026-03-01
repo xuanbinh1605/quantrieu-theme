@@ -196,13 +196,13 @@ get_header();
                     <!-- Features List -->
                     <ul class="space-y-3 mb-8">
                         <?php $features = quantrieu_get_about_features(); foreach ($features as $feature) : ?>
-                        <li class="flex items-start gap-3">
+                        <li class="flex items-center gap-3">
                             <div class="w-5 h-5 rounded-full bg-[#FF9800]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-3 h-3 text-[#FF9800]">
                                     <path d="M20 6 9 17l-5-5"></path>
                                 </svg>
                             </div>
-                            <span class="text-foreground" style="text-align: left;"><?php echo esc_html($feature); ?></span>
+                            <span class="text-foreground text-xs lg:text-sm" style="text-align: left;"><?php echo esc_html($feature); ?></span>
                         </li>
                         <?php endforeach; ?>
                     </ul>

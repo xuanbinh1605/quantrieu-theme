@@ -375,6 +375,17 @@ function quantrieu_customize_homepage($wp_customize) {
         'priority' => 40,
     ));
 
+    // Process badge
+    $wp_customize->add_setting('process_badge', array(
+        'default' => 'Quy trình',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('process_badge', array(
+        'label' => 'Nhãn Badge',
+        'section' => 'process_section',
+        'type' => 'text',
+    ));
+
     // Process title
     $wp_customize->add_setting('process_title', array(
         'default' => 'Quy Trình In Ấn Tại <span class="text-[#FF9800]">Quan Triều</span>',
@@ -721,6 +732,10 @@ function quantrieu_get_benefits() {
 }
 
 // Process section helpers
+function quantrieu_get_process_badge() {
+    return get_theme_mod('process_badge', 'Quy trình');
+}
+
 function quantrieu_get_process_title() {
     return get_theme_mod('process_title', 'Quy Trình In Ấn Tại <span class="text-[#FF9800]">Quan Triều</span>');
 }

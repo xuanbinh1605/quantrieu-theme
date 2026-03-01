@@ -255,6 +255,7 @@ get_header();
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="text-center mb-12 md:mb-16 px-2">
+                <span class="inline-block px-3 md:px-4 py-1.5 bg-background/10 text-background border border-background/30 text-xs md:text-sm font-medium rounded-full mb-4"><?php echo esc_html(quantrieu_get_process_badge()); ?></span>
                 <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-balance">
                     <?php echo wp_kses_post(quantrieu_get_process_title()); ?>
                 </h2>
@@ -345,7 +346,7 @@ get_header();
                 <a href="<?php echo esc_url($cta_buttons[0]['link']); ?>" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-md px-6 has-[>svg]:px-4 btn-white">
                     <?php echo esc_html($cta_buttons[0]['text']); ?>
                 </a>
-                <a href="<?php echo esc_url($cta_buttons[1]['link']); ?>" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border shadow-xs hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 border-background/30 text-background hover:bg-background/10 bg-transparent">
+                <a href="<?php echo esc_url($cta_buttons[1]['link']); ?>" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border shadow-xs hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-10 px-6 has-[>svg]:px-4 border-background/30 text-background hover:bg-background/10 bg-transparent">
                     <?php echo esc_html($cta_buttons[1]['text']); ?>
                 </a>
             </div>

@@ -39,10 +39,6 @@
         const animatedElements = document.querySelectorAll('[data-animate]');
         
         animatedElements.forEach((element, index) => {
-            // Add initial hidden state
-            element.style.opacity = '0';
-            element.style.transform = getInitialTransform(element.dataset.animate);
-            
             // Set staggered delay if within a group
             if (element.dataset.animateDelay) {
                 element.style.transitionDelay = element.dataset.animateDelay + 'ms';
@@ -88,32 +84,11 @@
         });
     }
 
-    function getInitialTransform(animationType) {
-        switch(animationType) {
-            case 'fade-up':
-                return 'translateY(30px)';
-            case 'fade-down':
-                return 'translateY(-30px)';
-            case 'fade-left':
-                return 'translateX(30px)';
-            case 'fade-right':
-                return 'translateX(-30px)';
-            case 'zoom-in':
-                return 'scale(0.9)';
-            case 'zoom-out':
-                return 'scale(1.1)';
-            case 'fade':
-            default:
-                return 'translateY(0)';
-        }
-    }
-
     function showAllElements() {
         // Fallback for browsers without IntersectionObserver
         const animatedElements = document.querySelectorAll('[data-animate]');
         animatedElements.forEach(element => {
-            element.style.opacity = '1';
-            element.style.transform = 'none';
+            element.classList.add('animated');
         });
     }
 

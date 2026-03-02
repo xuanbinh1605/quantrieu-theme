@@ -274,7 +274,7 @@ $services_query = new WP_Query($args);
             
             <!-- Pagination -->
             <?php if ($services_query->max_num_pages > 1) : ?>
-                <div class="mt-24 flex justify-center items-center gap-2">
+                <div class="mt-24 flex justify-center items-center gap-3">
                     <?php
                     $current_page = $paged;
                     $total_pages = $services_query->max_num_pages;
@@ -295,7 +295,7 @@ $services_query = new WP_Query($args);
                     // Previous button
                     if ($current_page > 1) : ?>
                         <a href="<?php echo esc_url(add_query_arg('page', $current_page - 1, $base_url)); ?>" 
-                           class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors h-9 w-9 border bg-background shadow-xs hover:bg-accent">
+                           class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors h-9 w-9 border bg-background shadow-xs hover:bg-[#FF9800] hover:text-white hover:border-[#FF9800]">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
                                 <path d="m15 18-6-6 6-6"></path>
                             </svg>
@@ -313,7 +313,7 @@ $services_query = new WP_Query($args);
                                 </span>
                             <?php else : ?>
                                 <a href="<?php echo esc_url(add_query_arg('page', $i, $base_url)); ?>" 
-                                   class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-9 w-9 border bg-background shadow-xs hover:bg-accent hover:border-[#FF9800] hover:text-[#FF9800]">
+                                   class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-9 w-9 border bg-background shadow-xs hover:bg-[#FF9800] hover:text-white hover:border-[#FF9800]">
                                     <?php echo $i; ?>
                                 </a>
                             <?php endif;
@@ -329,7 +329,7 @@ $services_query = new WP_Query($args);
                     // Next button
                     if ($current_page < $total_pages) : ?>
                         <a href="<?php echo esc_url(add_query_arg('page', $current_page + 1, $base_url)); ?>" 
-                           class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors h-9 w-9 border bg-background shadow-xs hover:bg-accent">
+                           class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors h-9 w-9 border bg-background shadow-xs hover:bg-[#FF9800] hover:text-white hover:border-[#FF9800]">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
                                 <path d="m9 18 6-6-6-6"></path>
                             </svg>

@@ -5729,6 +5729,21 @@ body {
     font-weight: 600;
 }
 
+.prose img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.prose figure {
+    max-width: 100%;
+    margin: 1.5rem 0;
+}
+
+.prose figure img {
+    max-width: 100%;
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
     [data-animate] {

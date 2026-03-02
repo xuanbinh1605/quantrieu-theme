@@ -70,7 +70,7 @@ while (have_posts()) : the_post();
         <!-- Main Content Layout -->
         <div class="flex flex-col lg:flex-row gap-8">
             <!-- Main Content -->
-            <div class="flex-1 lg:max-w-[calc(100%-320px)]" data-animate="fade-up">
+            <div class="flex-1 lg:max-w-[calc(100%-320px)] overflow-hidden" data-animate="fade-up">
                 <!-- Featured Image -->
                 <?php if ($thumbnail) : ?>
                     <div class="relative aspect-video w-full rounded-lg overflow-hidden mb-6">

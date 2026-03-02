@@ -10,9 +10,9 @@ get_header();
 
 <main id="primary" class="site-main">
     <!-- Hero Section -->
-    <section class="relative py-12 lg:py-16 pt-24 lg:pt-28 overflow-hidden bg-background" data-animate="fade">
+    <section class="relative py-12 lg:py-16 pt-28 lg:pt-32 overflow-hidden bg-background" data-animate="fade">
         <div class="container mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center" style="margin-top: 3rem;">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <!-- Left Content -->
                 <div class="text-center lg:text-left">
                     <!-- Badge -->
@@ -202,7 +202,7 @@ get_header();
                                     <path d="M20 6 9 17l-5-5"></path>
                                 </svg>
                             </div>
-                            <span class="text-foreground text-xs lg:text-sm" style="text-align: left;"><?php echo esc_html($feature); ?></span>
+                            <span class="text-foreground text-sm lg:text-base" style="text-align: left;"><?php echo esc_html($feature); ?></span>
                         </li>
                         <?php endforeach; ?>
                     </ul>
@@ -251,8 +251,16 @@ get_header();
     </section>
 
     <!-- Process Section -->
-    <section class="py-12 bg-gradient-to-br from-foreground via-foreground/95 to-foreground text-background overflow-hidden" data-animate="fade-up">
-        <div class="container mx-auto px-4">
+    <section class="py-12 bg-gradient-to-br from-foreground via-foreground/95 to-foreground text-background overflow-hidden relative" data-animate="fade-up">
+        <!-- Decorative Elements -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-20 left-10 w-72 h-72 border border-white rounded-full"></div>
+            <div class="absolute bottom-10 right-20 w-96 h-96 border border-white rounded-full"></div>
+            <div class="absolute top-40 right-40 w-48 h-48 border border-white rounded-full"></div>
+        </div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#0090ff]/10 to-transparent"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
             <!-- Section Header -->
             <div class="text-center mb-12 md:mb-16 px-2">
                 <span class="inline-block px-3 md:px-4 py-1.5 bg-background/10 text-background border border-background/30 text-xs md:text-sm font-medium rounded-full mb-4"><?php echo esc_html(quantrieu_get_process_badge()); ?></span>
@@ -275,7 +283,7 @@ get_header();
                             </svg>
                         </div>
                         <div class="text-xs lg:text-sm font-medium text-[#FF9800] mb-2">01</div>
-                        <h3 class="text-sm lg:text-lg font-semibold mb-2 lg:mb-3">Tiếp nhận & Tư vấn</h3>
+                        <h3 class="text-base lg:text-lg font-semibold mb-2 lg:mb-3">Tiếp nhận & Tư vấn</h3>
                         <p class="text-background/60 text-xs lg:text-sm leading-relaxed mx-auto">
                             Lắng nghe nhu cầu và tư vấn giải pháp in ấn phù hợp nhất cho khách hàng
                         </p>
@@ -295,7 +303,7 @@ get_header();
                             </svg>
                         </div>
                         <div class="text-xs lg:text-sm font-medium text-[#FF9800] mb-2">02</div>
-                        <h3 class="text-sm lg:text-lg font-semibold mb-2 lg:mb-3">Thiết kế & Duyệt mẫu</h3>
+                        <h3 class="text-base lg:text-lg font-semibold mb-2 lg:mb-3">Thiết kế & Duyệt mẫu</h3>
                         <p class="text-background/60 text-xs lg:text-sm leading-relaxed mx-auto">
                             Thiết kế theo yêu cầu hoặc hỗ trợ hoàn thiện file in cho khách hàng
                         </p>
@@ -313,7 +321,7 @@ get_header();
                             </svg>
                         </div>
                         <div class="text-xs lg:text-sm font-medium text-[#FF9800] mb-2">03</div>
-                        <h3 class="text-sm lg:text-lg font-semibold mb-2 lg:mb-3">In ấn & Gia công</h3>
+                        <h3 class="text-base lg:text-lg font-semibold mb-2 lg:mb-3">In ấn & Gia công</h3>
                         <p class="text-background/60 text-xs lg:text-sm leading-relaxed mx-auto">
                             Sản xuất với công nghệ hiện đại, kiểm soát chất lượng nghiêm ngặt
                         </p>
@@ -332,7 +340,7 @@ get_header();
                             </svg>
                         </div>
                         <div class="text-xs lg:text-sm font-medium text-[#FF9800] mb-2">04</div>
-                        <h3 class="text-sm lg:text-lg font-semibold mb-2 lg:mb-3">Giao hàng & Nghiệm thu</h3>
+                        <h3 class="text-base lg:text-lg font-semibold mb-2 lg:mb-3">Giao hàng & Nghiệm thu</h3>
                         <p class="text-background/60 text-xs lg:text-sm leading-relaxed mx-auto">
                             Đóng gói cẩn thận và giao hàng tận nơi đúng hẹn
                         </p>
@@ -343,10 +351,10 @@ get_header();
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <?php $cta_buttons = quantrieu_get_process_cta_buttons(); ?>
-                <a href="<?php echo esc_url($cta_buttons[0]['link']); ?>" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-md px-6 has-[>svg]:px-4 btn-white">
+                <a href="<?php echo esc_url($cta_buttons[0]['link']); ?>" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-md px-6 has-[>svg]:px-4 btn-white min-w-[180px]">
                     <?php echo esc_html($cta_buttons[0]['text']); ?>
                 </a>
-                <a href="<?php echo esc_url($cta_buttons[1]['link']); ?>" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border shadow-xs hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-10 px-6 has-[>svg]:px-4 border-background/30 text-background hover:bg-background/10 bg-transparent">
+                <a href="<?php echo esc_url($cta_buttons[1]['link']); ?>" data-slot="button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border shadow-xs hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-10 px-6 has-[>svg]:px-4 border-background/30 text-background hover:bg-background/10 bg-transparent min-w-[180px]">
                     <?php echo esc_html($cta_buttons[1]['text']); ?>
                 </a>
             </div>

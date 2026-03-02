@@ -10,7 +10,7 @@ get_header();
 
 <main id="primary" class="site-main">
     <!-- Hero Section -->
-    <section class="relative py-12 lg:py-16 pt-36 lg:pt-40 overflow-hidden bg-background" data-animate="fade">
+    <section class="relative py-12 lg:py-16 overflow-hidden bg-background" style="padding-top: 140px;" data-animate="fade">
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <!-- Left Content -->

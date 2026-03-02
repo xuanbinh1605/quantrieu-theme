@@ -5773,3 +5773,8 @@ body {
     opacity: 1 !important;
     visibility: visible !important;
 }
+
+/* Pagination */
+.mt-24.flex.justify-center.items-center.gap-3 {
+    margin-top: 30px;
+}

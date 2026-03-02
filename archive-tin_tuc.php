@@ -242,7 +242,7 @@ $categories = get_terms(array(
                 
                 <!-- Pagination -->
                 <?php if ($news_query->max_num_pages > 1) : ?>
-                    <div class="mt-16 flex justify-center items-center gap-2" style ="margin-top: 1rem;">
+                    <div class="mt-24 flex justify-center items-center gap-2">
                         <?php
                         $current_page = $paged;
                         $total_pages = $news_query->max_num_pages;

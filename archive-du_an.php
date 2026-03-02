@@ -229,7 +229,7 @@ $categories = get_terms(array(
             
             <!-- Pagination -->
             <?php if ($projects_query->max_num_pages > 1) : ?>
-                <div class="mt-16 flex justify-center items-center gap-2">
+                <div class="mt-24 flex justify-center items-center gap-2">
                     <?php
                     $current_page = $paged;
                     $total_pages = $projects_query->max_num_pages;

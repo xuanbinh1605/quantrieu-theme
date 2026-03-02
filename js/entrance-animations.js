@@ -52,9 +52,28 @@
                 element.style.transitionDelay = (elementIndex * CONFIG.animationDelay) + 'ms';
             }
             
-            // Start observing
-            observer.observe(element);
+            // Check if element is already in viewport (for elements visible on page load)
+            if (isElementInViewport(element)) {
+                // Animate after a short delay to allow CSS transition to be ready
+                setTimeout(() => {
+                    element.classList.add('animated');
+                }, 50);
+            } else {
+                // Start observing for elements not yet in viewport
+                observer.observe(element);
+            }
         });
+    }
+
+    function isElementInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        
+        // Check if any part of the element is in the viewport
+        return (
+            rect.top < windowHeight &&
+            rect.bottom > 0
+        );
     }
 
     function handleIntersection(entries, observer) {

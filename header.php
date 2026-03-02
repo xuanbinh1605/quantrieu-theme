@@ -3,6 +3,16 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Critical CSS: Hide animated elements immediately to prevent FOUC */
+        [data-animate] { opacity: 0; }
+        [data-animate="fade-up"] { transform: translateY(30px); }
+        [data-animate="fade-down"] { transform: translateY(-30px); }
+        [data-animate="fade-left"] { transform: translateX(30px); }
+        [data-animate="fade-right"] { transform: translateX(-30px); }
+        [data-animate="zoom-in"] { transform: scale(0.9); }
+        [data-animate="zoom-out"] { transform: scale(1.1); }
+    </style>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

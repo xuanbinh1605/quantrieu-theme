@@ -5692,6 +5692,43 @@ body {
     transform: none !important;
 }
 
+/* Prose Content Headings */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+    margin: 1rem 0;
+    color: var(--foreground);
+}
+
+.prose h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.prose h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.prose h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.prose h4 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.prose h5,
+.prose h6 {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
     [data-animate] {

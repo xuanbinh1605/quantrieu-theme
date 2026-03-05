@@ -52,10 +52,10 @@ function quantrieu_customize_cta_section($wp_customize) {
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('cta_phone_number', array(
-        'label' => 'Số điện thoại',
+        'label' => 'Số điện thoại (DEPRECATED)',
         'section' => 'cta_section',
         'type' => 'text',
-        'description' => 'Số điện thoại không có dấu cách (ví dụ: 0909123456)',
+        'description' => '⚠️ Cài đặt này không còn được sử dụng. Vui lòng chỉnh sửa tại: Thông Tin Chung > Số Điện Thoại',
     ));
 
     // Phone Display Text
@@ -64,10 +64,10 @@ function quantrieu_customize_cta_section($wp_customize) {
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('cta_phone_display', array(
-        'label' => 'Số điện thoại hiển thị',
+        'label' => 'Số điện thoại hiển thị (DEPRECATED)',
         'section' => 'cta_section',
         'type' => 'text',
-        'description' => 'Số điện thoại hiển thị trên nút (có thể có dấu cách)',
+        'description' => '⚠️ Cài đặt này không còn được sử dụng. Vui lòng chỉnh sửa tại: Thông Tin Chung > Số Điện Thoại',
     ));
 
     // Phone Button Text
@@ -166,11 +166,14 @@ function quantrieu_get_cta_description() {
 }
 
 function quantrieu_get_cta_phone_number() {
-    return get_theme_mod('cta_phone_number', '0909123456');
+    // Uses global phone setting, removes spaces for tel: links
+    $phone = quantrieu_get_phone();
+    return preg_replace('/\s+/', '', $phone);
 }
 
 function quantrieu_get_cta_phone_display() {
-    return get_theme_mod('cta_phone_display', '0909 123 456');
+    // Uses global phone setting
+    return quantrieu_get_phone();
 }
 
 function quantrieu_get_cta_phone_button_text() {

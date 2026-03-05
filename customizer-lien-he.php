@@ -127,9 +127,10 @@ function quantrieu_customize_contact_page($wp_customize) {
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('contact_info_address', array(
-        'label' => 'Địa chỉ',
+        'label' => 'Địa chỉ (DEPRECATED)',
         'section' => 'contact_info_section',
         'type' => 'text',
+        'description' => '⚠️ Cài đặt này không còn được sử dụng. Vui lòng chỉnh sửa tại: Thông Tin Chung > Địa Chỉ',
     ));
 
     // Address Google Maps link
@@ -149,9 +150,10 @@ function quantrieu_customize_contact_page($wp_customize) {
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('contact_info_phone', array(
-        'label' => 'Số điện thoại',
+        'label' => 'Số điện thoại (DEPRECATED)',
         'section' => 'contact_info_section',
         'type' => 'text',
+        'description' => '⚠️ Cài đặt này không còn được sử dụng. Vui lòng chỉnh sửa tại: Thông Tin Chung > Số Điện Thoại',
     ));
 
     // Phone link (without spaces)
@@ -160,10 +162,10 @@ function quantrieu_customize_contact_page($wp_customize) {
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('contact_info_phone_link', array(
-        'label' => 'Số điện thoại (không dấu cách)',
+        'label' => 'Số điện thoại không dấu cách (DEPRECATED)',
         'section' => 'contact_info_section',
         'type' => 'text',
-        'description' => 'Để tạo link tel: (ví dụ: 0909123456)',
+        'description' => '⚠️ Cài đặt này không còn được sử dụng. Số điện thoại tự động được xử lý từ cài đặt chung.',
     ));
 
     // Email
@@ -172,9 +174,10 @@ function quantrieu_customize_contact_page($wp_customize) {
         'sanitize_callback' => 'sanitize_email',
     ));
     $wp_customize->add_control('contact_info_email', array(
-        'label' => 'Email',
+        'label' => 'Email (DEPRECATED)',
         'section' => 'contact_info_section',
         'type' => 'email',
+        'description' => '⚠️ Cài đặt này không còn được sử dụng. Vui lòng chỉnh sửa tại: Thông Tin Chung > Email',
     ));
 
     // Working hours
@@ -183,9 +186,10 @@ function quantrieu_customize_contact_page($wp_customize) {
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('contact_info_working_hours', array(
-        'label' => 'Giờ làm việc',
+        'label' => 'Giờ làm việc (DEPRECATED)',
         'section' => 'contact_info_section',
         'type' => 'text',
+        'description' => '⚠️ Cài đặt này không còn được sử dụng. Vui lòng chỉnh sửa tại: Thông Tin Chung > Giờ Mở Cửa',
     ));
 
     // =================== ZALO CTA SECTION ===================
@@ -394,13 +398,14 @@ function quantrieu_get_contact_form_button_text() {
     return get_theme_mod('contact_form_button_text', 'Gửi Yêu Cầu Báo Giá');
 }
 
-// Contact info helpers
+// Contact info helpers - Now using global settings from customizer-general.php
 function quantrieu_get_contact_info_title() {
     return get_theme_mod('contact_info_title', 'Thông Tin Liên Hệ');
 }
 
 function quantrieu_get_contact_info_address() {
-    return get_theme_mod('contact_info_address', '123 Đường ABC, Quận XYZ, TP. Hồ Chí Minh');
+    // Uses global address setting
+    return quantrieu_get_address();
 }
 
 function quantrieu_get_contact_info_address_link() {
@@ -408,19 +413,24 @@ function quantrieu_get_contact_info_address_link() {
 }
 
 function quantrieu_get_contact_info_phone() {
-    return get_theme_mod('contact_info_phone', '0909 123 456');
+    // Uses global phone setting
+    return quantrieu_get_phone();
 }
 
 function quantrieu_get_contact_info_phone_link() {
-    return get_theme_mod('contact_info_phone_link', '0909123456');
+    // Automatically generates phone link from global phone setting
+    $phone = quantrieu_get_phone();
+    return preg_replace('/\s+/', '', $phone);
 }
 
 function quantrieu_get_contact_info_email() {
-    return get_theme_mod('contact_info_email', 'info@inquantrieu.com');
+    // Uses global email setting
+    return quantrieu_get_email();
 }
 
 function quantrieu_get_contact_info_working_hours() {
-    return get_theme_mod('contact_info_working_hours', '08:00 - 18:00 (Thứ 2 - Thứ 7)');
+    // Uses global open hours setting
+    return quantrieu_get_open_hours();
 }
 
 // Zalo CTA helpers

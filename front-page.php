@@ -385,7 +385,7 @@ get_header();
                 if ($clients_query->have_posts()) :
                     while ($clients_query->have_posts()) : $clients_query->the_post();
                         ?>
-                        <div class="flex items-center justify-center p-6 bg-card rounded-xl hover:shadow-lg transition-shadow grayscale hover:grayscale-0">
+                        <div class="flex items-center justify-center p-6 bg-card rounded-xl hover:shadow-lg transition-shadow">
                             <?php if (has_post_thumbnail()) : ?>
                                 <?php the_post_thumbnail('medium', array(
                                     'alt' => get_the_title(),
@@ -404,7 +404,7 @@ get_header();
                     // Fallback if no clients
                     for ($i = 1; $i <= 8; $i++) :
                         ?>
-                        <div class="flex items-center justify-center p-6 bg-card rounded-xl hover:shadow-lg transition-shadow grayscale hover:grayscale-0">
+                        <div class="flex items-center justify-center p-6 bg-card rounded-xl hover:shadow-lg transition-shadow">
                             <div class="h-12 flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="120" height="48" viewBox="0 0 120 48" class="text-muted-foreground opacity-30">
                                     <rect x="10" y="14" width="100" height="20" rx="4" fill="currentColor"/>

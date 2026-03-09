@@ -73,6 +73,7 @@ require_once get_template_directory() . '/customizer-trang-chu.php';
 require_once get_template_directory() . '/customizer-gioi-thieu.php';
 require_once get_template_directory() . '/customizer-cta.php';
 require_once get_template_directory() . '/customizer-lien-he.php';
+require_once get_template_directory() . '/customizer-cam-on.php';
 require_once get_template_directory() . '/customizer-archive-du-an.php';
 require_once get_template_directory() . '/customizer-archive-dich-vu.php';
 require_once get_template_directory() . '/customizer-archive-tin-tuc.php';

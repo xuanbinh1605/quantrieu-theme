@@ -620,9 +620,7 @@ function quantrieu_get_hero_cta1_link() {
     return get_theme_mod('hero_cta1_link', '#contact');
 }
 
-function quantrieu_get_hero_phone() {
-    return quantrieu_get_global_phone_display();
-}
+// Note: quantrieu_get_hero_phone() is now defined in customizer-global-contact.php
 
 function quantrieu_get_hero_image_id() {
     return get_theme_mod('hero_image', 14);

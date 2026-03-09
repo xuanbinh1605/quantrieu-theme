@@ -9,6 +9,7 @@ function quantrieu_customize_general_register($wp_customize) {
     // Thêm Section cho Thông tin Chung
     $wp_customize->add_section('quantrieu_general_section', array(
         'title'    => 'Thông Tin Chung',
+        'description' => '📌 Lưu ý: Số điện thoại và Zalo được quản lý tại panel <strong>"📞 Thông Tin Liên Hệ Toàn Cục"</strong>.',
         'priority' => 30,
     ));
 
@@ -27,7 +28,7 @@ function quantrieu_customize_general_register($wp_customize) {
         'priority'    => 10,
     )));
 
-    // Số Điện Thoại
+    // Số Điện Thoại (DEPRECATED - kept for backward compatibility)
     $wp_customize->add_setting('quantrieu_phone', array(
         'default'           => '0909 123 456',
         'sanitize_callback' => 'sanitize_text_field',
@@ -35,8 +36,8 @@ function quantrieu_customize_general_register($wp_customize) {
     ));
 
     $wp_customize->add_control('quantrieu_phone', array(
-        'label'       => 'Số Điện Thoại',
-        'description' => 'Nhập số điện thoại liên hệ',
+        'label'       => 'Số Điện Thoại (DEPRECATED)',
+        'description' => '⚠️ Cài đặt này không còn được sử dụng. Vui lòng chỉnh sửa tại: 📞 Thông Tin Liên Hệ Toàn Cục',
         'section'     => 'quantrieu_general_section',
         'type'        => 'text',
         'priority'    => 20,
@@ -103,9 +104,9 @@ function quantrieu_get_logo() {
     return '';
 }
 
-// Lấy Số Điện Thoại
+// Lấy Số Điện Thoại - sử dụng giá trị toàn cục
 function quantrieu_get_phone() {
-    return get_theme_mod('quantrieu_phone', '0909 123 456');
+    return quantrieu_get_global_phone_display();
 }
 
 // Lấy Địa Chỉ

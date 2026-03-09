@@ -157,22 +157,13 @@ function quantrieu_get_cta_description() {
     return get_theme_mod('cta_description', 'Liên hệ ngay với chúng tôi để nhận báo giá tốt nhất và được tư vấn miễn phí!');
 }
 
-// Phone functions - sử dụng giá trị toàn cục
-function quantrieu_get_cta_phone_number() {
-    return quantrieu_get_global_phone_link();
-}
-
-function quantrieu_get_cta_phone_display() {
-    return quantrieu_get_global_phone_display();
-}
+// Note: Phone and Zalo link functions are now defined in customizer-global-contact.php
+// - quantrieu_get_cta_phone_number()
+// - quantrieu_get_cta_phone_display()
+// - quantrieu_get_cta_zalo_link()
 
 function quantrieu_get_cta_phone_button_text() {
     return get_theme_mod('cta_phone_button_text', 'Gọi ngay');
-}
-
-// Zalo link - sử dụng giá trị toàn cục
-function quantrieu_get_cta_zalo_link() {
-    return quantrieu_get_global_zalo_link();
 }
 
 function quantrieu_get_cta_zalo_button_text() {

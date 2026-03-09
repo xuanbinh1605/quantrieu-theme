@@ -403,14 +403,9 @@ function quantrieu_get_contact_info_address_link() {
 }
 
 // Contact info helpers
-// Phone - sử dụng giá trị toàn cục
-function quantrieu_get_contact_info_phone() {
-    return quantrieu_get_global_phone_display();
-}
-
-function quantrieu_get_contact_info_phone_link() {
-    return quantrieu_get_global_phone_link();
-}
+// Note: Phone functions are now defined in customizer-global-contact.php
+// - quantrieu_get_contact_info_phone()
+// - quantrieu_get_contact_info_phone_link()
 
 function quantrieu_get_contact_info_email() {
     // Uses global email setting
@@ -435,10 +430,8 @@ function quantrieu_get_contact_zalo_button_text() {
     return get_theme_mod('contact_zalo_button_text', 'Nhắn tin ngay');
 }
 
-// Zalo link - sử dụng giá trị toàn cục
-function quantrieu_get_contact_zalo_link() {
-    return quantrieu_get_global_zalo_link();
-}
+// Note: Zalo link function is now defined in customizer-global-contact.php
+// - quantrieu_get_contact_zalo_link()
 
 // Social media helpers
 function quantrieu_get_contact_social_title() {

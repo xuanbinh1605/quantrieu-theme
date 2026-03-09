@@ -67,6 +67,7 @@ require_once get_template_directory() . '/admin/contact-list.php';
 require_once get_template_directory() . '/ajax/contact-form-handler.php';
 
 // Include customizer settings
+require_once get_template_directory() . '/customizer-global-contact.php'; // Global contact settings (phone, zalo)
 require_once get_template_directory() . '/customizer-general.php';
 require_once get_template_directory() . '/customizer-trang-chu.php';
 require_once get_template_directory() . '/customizer-gioi-thieu.php';

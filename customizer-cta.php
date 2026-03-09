@@ -18,7 +18,7 @@ function quantrieu_customize_cta_section($wp_customize) {
     // Section cho CTA
     $wp_customize->add_section('cta_section', array(
         'title' => 'Phần Kêu Gọi Hành Động (CTA)',
-        'description' => 'Tùy chỉnh nội dung phần kêu gọi hành động xuất hiện cuối trang',
+        'description' => 'Tùy chỉnh nội dung phần kêu gọi hành động xuất hiện cuối trang.<br><br><strong>📌 Lưu ý:</strong> Số điện thoại và link Zalo được quản lý tại panel <strong>"📞 Thông Tin Liên Hệ Toàn Cục"</strong>.',
         'priority' => 40,
     ));
 
@@ -46,7 +46,7 @@ function quantrieu_customize_cta_section($wp_customize) {
         'description' => 'Thông điệp khuyến khích khách hàng liên hệ',
     ));
 
-    // Phone Number
+    // Phone Number (DEPRECATED - kept for backward compatibility)
     $wp_customize->add_setting('cta_phone_number', array(
         'default' => '0909123456',
         'sanitize_callback' => 'sanitize_text_field',
@@ -55,10 +55,10 @@ function quantrieu_customize_cta_section($wp_customize) {
         'label' => 'Số điện thoại (DEPRECATED)',
         'section' => 'cta_section',
         'type' => 'text',
-        'description' => '⚠️ Cài đặt này không còn được sử dụng. Vui lòng chỉnh sửa tại: Thông Tin Chung > Số Điện Thoại',
+        'description' => '⚠️ Cài đặt này không còn được sử dụng. Vui lòng chỉnh sửa tại: 📞 Thông Tin Liên Hệ Toàn Cục',
     ));
 
-    // Phone Display Text
+    // Phone Display Text (DEPRECATED - kept for backward compatibility)
     $wp_customize->add_setting('cta_phone_display', array(
         'default' => '0909 123 456',
         'sanitize_callback' => 'sanitize_text_field',
@@ -67,8 +67,9 @@ function quantrieu_customize_cta_section($wp_customize) {
         'label' => 'Số điện thoại hiển thị (DEPRECATED)',
         'section' => 'cta_section',
         'type' => 'text',
-        'description' => '⚠️ Cài đặt này không còn được sử dụng. Vui lòng chỉnh sửa tại: Thông Tin Chung > Số Điện Thoại',
+        'description' => '⚠️ Cài đặt này không còn được sử dụng. Vui lòng chỉnh sửa tại: 📞 Thông Tin Liên Hệ Toàn Cục',
     ));
+
 
     // Phone Button Text
     $wp_customize->add_setting('cta_phone_button_text', array(
@@ -80,18 +81,6 @@ function quantrieu_customize_cta_section($wp_customize) {
         'section' => 'cta_section',
         'type' => 'text',
         'description' => 'Văn bản trước số điện thoại trên nút',
-    ));
-
-    // Zalo Link
-    $wp_customize->add_setting('cta_zalo_link', array(
-        'default' => 'https://zalo.me/0909123456',
-        'sanitize_callback' => 'esc_url_raw',
-    ));
-    $wp_customize->add_control('cta_zalo_link', array(
-        'label' => 'Liên kết Zalo',
-        'section' => 'cta_section',
-        'type' => 'url',
-        'description' => 'Link Zalo đầy đủ (ví dụ: https://zalo.me/0909123456)',
     ));
 
     // Zalo Button Text
@@ -155,6 +144,9 @@ add_action('customize_register', 'quantrieu_customize_cta_section');
 
 /**
  * Helper functions để lấy customizer values với fallback
+ * 
+ * Lưu ý: Số điện thoại và Zalo link sử dụng giá trị toàn cục
+ * từ panel "📞 Thông Tin Liên Hệ Toàn Cục"
  */
 
 function quantrieu_get_cta_heading() {
@@ -165,23 +157,22 @@ function quantrieu_get_cta_description() {
     return get_theme_mod('cta_description', 'Liên hệ ngay với chúng tôi để nhận báo giá tốt nhất và được tư vấn miễn phí!');
 }
 
+// Phone functions - sử dụng giá trị toàn cục
 function quantrieu_get_cta_phone_number() {
-    // Uses global phone setting, removes spaces for tel: links
-    $phone = quantrieu_get_phone();
-    return preg_replace('/\s+/', '', $phone);
+    return quantrieu_get_global_phone_link();
 }
 
 function quantrieu_get_cta_phone_display() {
-    // Uses global phone setting
-    return quantrieu_get_phone();
+    return quantrieu_get_global_phone_display();
 }
 
 function quantrieu_get_cta_phone_button_text() {
     return get_theme_mod('cta_phone_button_text', 'Gọi ngay');
 }
 
+// Zalo link - sử dụng giá trị toàn cục
 function quantrieu_get_cta_zalo_link() {
-    return get_theme_mod('cta_zalo_link', 'https://zalo.me/0909123456');
+    return quantrieu_get_global_zalo_link();
 }
 
 function quantrieu_get_cta_zalo_button_text() {

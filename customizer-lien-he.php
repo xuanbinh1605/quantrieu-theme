@@ -107,8 +107,7 @@ function quantrieu_customize_contact_page($wp_customize) {
     $wp_customize->add_section('contact_info_section', array(
         'title' => 'Phần Thông Tin Liên Hệ',
         'panel' => 'contact_page_panel',
-        'priority' => 30,
-    ));
+        'priority' => 30,        'description' => '📌 Lưu ý: Số điện thoại được quản lý tại panel <strong>"📞 Thông Tin Liên Hệ Toàn Cục"</strong>.',    ));
 
     // Section title
     $wp_customize->add_setting('contact_info_title', array(
@@ -144,7 +143,7 @@ function quantrieu_customize_contact_page($wp_customize) {
         'type' => 'url',
     ));
 
-    // Phone
+    // Phone (DEPRECATED - kept for backward compatibility)
     $wp_customize->add_setting('contact_info_phone', array(
         'default' => '0909 123 456',
         'sanitize_callback' => 'sanitize_text_field',
@@ -153,10 +152,10 @@ function quantrieu_customize_contact_page($wp_customize) {
         'label' => 'Số điện thoại (DEPRECATED)',
         'section' => 'contact_info_section',
         'type' => 'text',
-        'description' => '⚠️ Cài đặt này không còn được sử dụng. Vui lòng chỉnh sửa tại: Thông Tin Chung > Số Điện Thoại',
+        'description' => '⚠️ Cài đặt này không còn được sử dụng. Vui lòng chỉnh sửa tại: 📞 Thông Tin Liên Hệ Toàn Cục',
     ));
 
-    // Phone link (without spaces)
+    // Phone link (DEPRECATED - kept for backward compatibility)
     $wp_customize->add_setting('contact_info_phone_link', array(
         'default' => '0909123456',
         'sanitize_callback' => 'sanitize_text_field',
@@ -165,8 +164,9 @@ function quantrieu_customize_contact_page($wp_customize) {
         'label' => 'Số điện thoại không dấu cách (DEPRECATED)',
         'section' => 'contact_info_section',
         'type' => 'text',
-        'description' => '⚠️ Cài đặt này không còn được sử dụng. Số điện thoại tự động được xử lý từ cài đặt chung.',
+        'description' => '⚠️ Cài đặt này không còn được sử dụng. Vui lòng chỉnh sửa tại: 📞 Thông Tin Liên Hệ Toàn Cục',
     ));
+
 
     // Email
     $wp_customize->add_setting('contact_info_email', array(
@@ -197,6 +197,7 @@ function quantrieu_customize_contact_page($wp_customize) {
         'title' => 'Phần Zalo CTA',
         'panel' => 'contact_page_panel',
         'priority' => 40,
+        'description' => '📌 Lưu ý: Link Zalo được quản lý tại panel <strong>"📞 Thông Tin Liên Hệ Toàn Cục"</strong>.',
     ));
 
     // Zalo title
@@ -230,17 +231,6 @@ function quantrieu_customize_contact_page($wp_customize) {
         'label' => 'Văn bản nút Zalo',
         'section' => 'contact_zalo_section',
         'type' => 'text',
-    ));
-
-    // Zalo link
-    $wp_customize->add_setting('contact_zalo_link', array(
-        'default' => 'https://zalo.me/0909123456',
-        'sanitize_callback' => 'esc_url_raw',
-    ));
-    $wp_customize->add_control('contact_zalo_link', array(
-        'label' => 'Liên kết Zalo',
-        'section' => 'contact_zalo_section',
-        'type' => 'url',
     ));
 
     // =================== SOCIAL MEDIA SECTION ===================
@@ -412,15 +402,14 @@ function quantrieu_get_contact_info_address_link() {
     return get_theme_mod('contact_info_address_link', 'https://maps.google.com');
 }
 
+// Contact info helpers
+// Phone - sử dụng giá trị toàn cục
 function quantrieu_get_contact_info_phone() {
-    // Uses global phone setting
-    return quantrieu_get_phone();
+    return quantrieu_get_global_phone_display();
 }
 
 function quantrieu_get_contact_info_phone_link() {
-    // Automatically generates phone link from global phone setting
-    $phone = quantrieu_get_phone();
-    return preg_replace('/\s+/', '', $phone);
+    return quantrieu_get_global_phone_link();
 }
 
 function quantrieu_get_contact_info_email() {
@@ -446,8 +435,9 @@ function quantrieu_get_contact_zalo_button_text() {
     return get_theme_mod('contact_zalo_button_text', 'Nhắn tin ngay');
 }
 
+// Zalo link - sử dụng giá trị toàn cục
 function quantrieu_get_contact_zalo_link() {
-    return get_theme_mod('contact_zalo_link', 'https://zalo.me/0909123456');
+    return quantrieu_get_global_zalo_link();
 }
 
 // Social media helpers

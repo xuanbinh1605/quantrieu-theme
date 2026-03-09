@@ -27,6 +27,7 @@ function quantrieu_customize_homepage($wp_customize) {
         'title' => 'Phần Hero (Banner)',
         'panel' => 'homepage_panel',
         'priority' => 10,
+        'description' => '📌 Lưu ý: Số điện thoại được quản lý tại panel <strong>"📞 Thông Tin Liên Hệ Toàn Cục"</strong>.',
     ));
 
     // Badge text
@@ -83,17 +84,6 @@ function quantrieu_customize_homepage($wp_customize) {
         'label' => 'Nút CTA 1 - Liên kết',
         'section' => 'hero_section',
         'type' => 'url',
-    ));
-
-    // Phone number
-    $wp_customize->add_setting('hero_phone', array(
-        'default' => '0909 123 456',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('hero_phone', array(
-        'label' => 'Số điện thoại',
-        'section' => 'hero_section',
-        'type' => 'text',
     ));
 
     // Hero image
@@ -631,7 +621,7 @@ function quantrieu_get_hero_cta1_link() {
 }
 
 function quantrieu_get_hero_phone() {
-    return get_theme_mod('hero_phone', '0909 123 456');
+    return quantrieu_get_global_phone_display();
 }
 
 function quantrieu_get_hero_image_id() {

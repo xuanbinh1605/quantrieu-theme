@@ -124,8 +124,8 @@ while (have_posts()) : the_post();
                 <!-- Contact Footer -->
                 <div class="mt-8 pt-6 border-t border-border text-muted-foreground">
                     Liên hệ tư vấn: 
-                    <a href="tel:0909099939" class="text-[#FF9800] font-semibold hover:underline">0909 099 939</a> | 
-                    <a href="https://zalo.me/0909099939" target="_blank" rel="noopener noreferrer" class="text-[#0090ff] font-semibold hover:underline">Chat Zalo</a>
+                    <a href="tel:<?php echo esc_attr(quantrieu_get_global_phone_link()); ?>" class="text-[#FF9800] font-semibold hover:underline"><?php echo esc_html(quantrieu_get_global_phone_display()); ?></a> | 
+                    <a href="<?php echo esc_url(quantrieu_get_global_zalo_link()); ?>" target="_blank" rel="noopener noreferrer" class="text-[#0090ff] font-semibold hover:underline">Chat Zalo</a>
                 </div>
             </div>
             
@@ -136,13 +136,13 @@ while (have_posts()) : the_post();
                     <div class="bg-muted/50 rounded-lg p-5">
                         <h3 class="font-semibold text-foreground mb-4">Liên hệ tư vấn</h3>
                         <div class="space-y-3">
-                            <a href="tel:0909099939" class="flex items-center gap-3 p-3 bg-[#FF9800] text-white rounded-lg hover:bg-[#FF9800]/90 transition-colors">
+                            <a href="tel:<?php echo esc_attr(quantrieu_get_global_phone_link()); ?>" class="flex items-center gap-3 p-3 bg-[#FF9800] text-white rounded-lg hover:bg-[#FF9800]/90 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone w-5 h-5">
                                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                                 </svg>
-                                <span class="font-medium">0909 099 939</span>
+                                <span class="font-medium"><?php echo esc_html(quantrieu_get_global_phone_display()); ?></span>
                             </a>
-                            <a href="https://zalo.me/0909099939" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 bg-[#0090ff] text-white rounded-lg hover:bg-[#0090ff]/90 transition-colors">
+                            <a href="<?php echo esc_url(quantrieu_get_global_zalo_link()); ?>" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 bg-[#0090ff] text-white rounded-lg hover:bg-[#0090ff]/90 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle w-5 h-5">
                                     <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
                                 </svg>

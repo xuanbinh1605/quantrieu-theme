@@ -5744,14 +5744,68 @@ body {
     margin-bottom: 1rem;
 }
 
-.prose ul,
+/* Lists - Force display of bullets and numbers */
+.prose ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    list-style-type: disc !important;
+    list-style-position: outside !important;
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 0.5rem;
+}
+
 .prose ol {
     font-size: 1rem;
     line-height: 1.6;
+    list-style-type: decimal !important;
+    list-style-position: outside !important;
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 0.5rem;
 }
 
 .prose li {
     margin-bottom: 0.5rem; /* 8px spacing */
+    padding-left: 0.5rem;
+}
+
+/* Nested lists */
+.prose ul ul,
+.prose ol ul {
+    list-style-type: circle !important;
+    margin-top: 0.5rem;
+}
+
+.prose ul ol,
+.prose ol ol {
+    list-style-type: lower-alpha !important;
+    margin-top: 0.5rem;
+}
+
+/* Tables - Ensure borders are visible */
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    border: 1px solid var(--color-border, #e5e7eb) !important;
+}
+
+.prose th {
+    border: 1px solid var(--color-border, #e5e7eb) !important;
+    background-color: var(--color-muted, #f9fafb);
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.prose td {
+    border: 1px solid var(--color-border, #e5e7eb) !important;
+    padding: 0.75rem;
+}
+
+.prose tbody tr:hover {
+    background-color: var(--color-muted, #f9fafb);
 }
 
 /* Responsive typography for prose */

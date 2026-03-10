@@ -129,14 +129,14 @@ while (have_posts()) : the_post();
                     [&_h6]:text-base [&_h6]:font-medium [&_h6]:my-4 [&_h6]:text-foreground
                     [&_p]:text-base [&_p]:text-foreground/80 [&_p]:leading-relaxed [&_p]:mb-4
                     [&_strong]:text-foreground [&_strong]:font-semibold
-                    [&_ul]:space-y-2 [&_ul]:mb-6 [&_ul]:list-disc [&_ul]:pl-6 [&_ul_li]:text-base [&_ul_li]:text-foreground/80 [&_ul_li]:leading-relaxed
-                    [&_ol]:space-y-2 [&_ol]:mb-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol_li]:text-base [&_ol_li]:text-foreground/80 [&_ol_li]:leading-relaxed
+                    [&_ul]:space-y-2 [&_ul]:mb-6 [&_ul]:ml-6 [&_ul]:list-disc [&_ul]:list-outside [&_ul_li]:text-base [&_ul_li]:text-foreground/80 [&_ul_li]:leading-relaxed [&_ul_li]:pl-2
+                    [&_ol]:space-y-2 [&_ol]:mb-6 [&_ol]:ml-6 [&_ol]:list-decimal [&_ol]:list-outside [&_ol_li]:text-base [&_ol_li]:text-foreground/80 [&_ol_li]:leading-relaxed [&_ol_li]:pl-2
                     [&_a]:text-[#0090ff] [&_a]:underline hover:[&_a]:text-[#FF9800]
                     [&_img]:rounded-lg [&_img]:my-6
                     [&_blockquote]:border-l-4 [&_blockquote]:border-[#FF9800] [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-foreground/70
-                    [&_table]:w-full [&_table]:border-collapse [&_table]:my-6
-                    [&_th]:border [&_th]:border-border [&_th]:bg-muted [&_th]:p-2 [&_th]:text-left
-                    [&_td]:border [&_td]:border-border [&_td]:p-2
+                    [&_table]:w-full [&_table]:border-collapse [&_table]:my-6 [&_table]:border [&_table]:border-border
+                    [&_th]:border [&_th]:border-border [&_th]:bg-muted [&_th]:p-3 [&_th]:text-left [&_th]:font-semibold
+                    [&_td]:border [&_td]:border-border [&_td]:p-3
                     [&_code]:bg-muted [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm
                     [&_pre]:bg-muted [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:my-6">
                     <?php the_content(); ?>

@@ -83,26 +83,24 @@ $categories = get_terms(array(
         <!-- Search & Filter Section -->
         <div class="mb-8 flex flex-col lg:flex-row items-center justify-between gap-6">
             <!-- Search Box -->
-            <div class="w-64">
+            <div class="relative w-full sm:w-96">
                 <form method="get" action="<?php echo esc_url(get_post_type_archive_link('tin_tuc')); ?>" id="news-search-form">
-                    <div class="relative">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.3-4.3"></path>
-                        </svg>
-                        <input 
-                            data-slot="input" 
-                            class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input w-full min-w-0 border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive pl-12 h-12 rounded-full" 
-                            placeholder="<?php echo esc_attr(quantrieu_get_archive_news_search_placeholder()); ?>" 
-                            type="text" 
-                            name="search"
-                            id="news-search-input"
-                            value="<?php echo esc_attr($search_query); ?>"
-                            autocomplete="off">
-                        <?php if (!empty($current_category)) : ?>
-                            <input type="hidden" name="category" value="<?php echo esc_attr($current_category); ?>">
-                        <?php endif; ?>
-                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground pointer-events-none z-10">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </svg>
+                    <input 
+                        data-slot="input" 
+                        class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive pl-10" 
+                        placeholder="<?php echo esc_attr(quantrieu_get_archive_news_search_placeholder()); ?>" 
+                        type="text" 
+                        name="search"
+                        id="news-search-input"
+                        value="<?php echo esc_attr($search_query); ?>"
+                        autocomplete="off">
+                    <?php if (!empty($current_category)) : ?>
+                        <input type="hidden" name="category" value="<?php echo esc_attr($current_category); ?>">
+                    <?php endif; ?>
                 </form>
             </div>
             
